@@ -8,15 +8,12 @@
 
 import Foundation
 import UIKit
+import CoreData
 
-class Word {
-    var title: String!
-    var description: String!
-    var audioURL: NSURL?
-    var picture: UIImage?
+class Word: NSManagedObject {
+    @NSManaged var title: String!
+    @NSManaged var wordDescription: String!
+    @NSManaged var audio: NSData?
+    @NSManaged var picture: NSData?
     
-    init( title:String, desc:String ){
-        self.title = title
-        description = desc;
-    }
 }

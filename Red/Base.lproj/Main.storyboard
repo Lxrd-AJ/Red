@@ -20,18 +20,18 @@
                                 <rect key="frame" x="0.0" y="86" width="320" height="90"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="SlO-kH-Bha" id="0p8-HQ-1pd">
-                                    <rect key="frame" x="0.0" y="0.0" width="287" height="90"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="287" height="89.5"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1q-cg-Ma9">
-                                            <rect key="frame" x="73" y="9" width="44" height="36"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g1q-cg-Ma9">
+                                            <rect key="frame" x="73" y="9" width="44" height="22"/>
                                             <animations/>
                                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OHg-CV-a9Z">
-                                            <rect key="frame" x="73" y="65" width="214" height="16"/>
+                                            <rect key="frame" x="73" y="51" width="214" height="16"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="16" id="bg0-NM-xR0"/>
@@ -41,7 +41,7 @@
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="1000" verticalCompressionResistancePriority="1000" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="Clo-21-HaW">
-                                            <rect key="frame" x="8" y="15" width="60" height="60"/>
+                                            <rect key="frame" x="8" y="8" width="60" height="60"/>
                                             <animations/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="60" id="6u6-qE-Z4w"/>
@@ -51,14 +51,14 @@
                                     </subviews>
                                     <animations/>
                                     <constraints>
-                                        <constraint firstAttribute="bottomMargin" secondItem="Clo-21-HaW" secondAttribute="bottom" constant="7" id="M2v-9S-zzS"/>
-                                        <constraint firstItem="OHg-CV-a9Z" firstAttribute="top" relation="lessThanOrEqual" secondItem="g1q-cg-Ma9" secondAttribute="bottom" priority="500" constant="20" id="PJL-OK-Pb2"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="Clo-21-HaW" secondAttribute="bottom" placeholder="YES" id="M2v-9S-zzS"/>
+                                        <constraint firstItem="OHg-CV-a9Z" firstAttribute="top" secondItem="g1q-cg-Ma9" secondAttribute="bottom" priority="500" constant="20" id="PJL-OK-Pb2"/>
                                         <constraint firstAttribute="leadingMargin" secondItem="Clo-21-HaW" secondAttribute="leading" id="TM8-eC-1C1"/>
                                         <constraint firstItem="g1q-cg-Ma9" firstAttribute="top" secondItem="0p8-HQ-1pd" secondAttribute="topMargin" constant="1" id="TaV-UL-GgP"/>
-                                        <constraint firstItem="g1q-cg-Ma9" firstAttribute="leading" secondItem="Clo-21-HaW" secondAttribute="trailing" constant="5" id="b0b-ON-tXn"/>
-                                        <constraint firstItem="OHg-CV-a9Z" firstAttribute="leading" secondItem="Clo-21-HaW" secondAttribute="trailing" constant="5" id="bg6-S4-xpP"/>
+                                        <constraint firstItem="g1q-cg-Ma9" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Clo-21-HaW" secondAttribute="trailing" constant="5" id="b0b-ON-tXn"/>
+                                        <constraint firstItem="OHg-CV-a9Z" firstAttribute="leading" relation="lessThanOrEqual" secondItem="Clo-21-HaW" secondAttribute="trailing" constant="5" id="bg6-S4-xpP"/>
                                         <constraint firstAttribute="bottomMargin" secondItem="OHg-CV-a9Z" secondAttribute="bottom" constant="1" id="dpp-KJ-NFv"/>
-                                        <constraint firstItem="Clo-21-HaW" firstAttribute="top" secondItem="0p8-HQ-1pd" secondAttribute="topMargin" constant="7" id="tFH-G7-jTP"/>
+                                        <constraint firstItem="Clo-21-HaW" firstAttribute="top" secondItem="0p8-HQ-1pd" secondAttribute="topMargin" placeholder="YES" id="tFH-G7-jTP"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="OHg-CV-a9Z" secondAttribute="trailing" constant="-8" id="wCb-Qt-ty6"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -276,7 +276,7 @@
                                         <rect key="frame" x="0.0" y="454" width="320" height="50"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="ZNp-Qj-hDG" id="BNY-J0-2Bc">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="49.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DYR-ZQ-Sx1">

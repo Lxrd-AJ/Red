@@ -8,6 +8,7 @@
 
 import UIKit
 import AVFoundation
+import CoreData
 
 class AddViewController: UITableViewController {
     
@@ -50,7 +51,7 @@ class AddViewController: UITableViewController {
             }
 
         }catch{
-            alert.message = error as? String
+            alert.message = "\((error as NSError).localizedDescription)"
             presentViewController(alert, animated: true, completion: nil)
         }
     }
@@ -78,7 +79,25 @@ class AddViewController: UITableViewController {
     }
     
     @IBAction func save(){
-        print("Saving =====>")
+        //Check for the important ones
+        if( titleField.text == "" ){
+            alert.message = "You Have to enter at least a title before saving a Word"
+            presentViewController(alert, animated: true, completion: nil)
+        }else{
+            let managedObjContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+            self.word = NSEntityDescription.insertNewObjectForEntityForName("Word", inManagedObjectContext: managedObjContext) as! Word
+            self.word.title = titleField.text
+            self.word.wordDescription = descriptionField.text
+            self.word.picture = UIImagePNGRepresentation( self.imageView.image! )
+            if self.audioURL != nil {
+                self.word.audio = NSData( contentsOfURL: self.audioURL )
+            }
+            //Save to DB
+            do{ try managedObjContext.save() }
+            catch{ print("Insertion Error:\((error as NSError).localizedDescription)") }
+            //Close up
+            defer{ self.navigationController?.dismissViewControllerAnimated(true , completion: nil) }
+        }
     }
     
     @IBAction func record( sender:AnyObject ){
@@ -168,6 +187,7 @@ class AddViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "cancelAdd" {
             //Do all necessary cleanUp here
+            print("Cleaning........")
             //Remove Audio File at location
             if self.audioURL != nil {
                 do{ try NSFileManager.defaultManager().removeItemAtURL( self.audioURL ) }

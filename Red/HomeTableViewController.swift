@@ -7,23 +7,34 @@
 //
 
 import UIKit
+import CoreData
 
 class HomeTableViewController: UITableViewController {
     
-    var sampleData: [Word] = [
-        Word( title: "Run", desc: "To Move very quickly from one position to another" ),
-        Word(title: "Motley Crew", desc: "A disorganized group of people" ),
-        Word( title: "Trap Queen", desc: "A Badass Female who pays her rent" )
-    ]
+    var words: [Word] = []
+    var searchResults: [Word] = []
+    var searchController: UISearchController!
+    var fetchResultsController: NSFetchedResultsController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        //Search Customisation
+        searchController = UISearchController( searchResultsController: nil )
+        searchController.searchBar.sizeToFit()
+        tableView.tableHeaderView = searchController.searchBar
+        definesPresentationContext = true
+        searchController.searchResultsUpdater = self
+        searchController.dimsBackgroundDuringPresentation = false
+        searchController.searchBar.placeholder = "Search for a word"
+        
+        fetchDataFromDB()
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        fetchDataFromDB()
+        tableView.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -31,11 +42,36 @@ class HomeTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+    }
+    
     @IBAction func unwindToSegue( segue:UIStoryboardSegue ) {
-        if segue.identifier == "cancelAdd" {
-//            if let temp = segue.sourceViewController as? AddViewController {
-//                temp.stopRecording()
-//            }
+        if segue.identifier == "cancelAdd" {}
+    }
+    
+    func filterConentForSearchText( searchText:String ){
+        searchResults = words.filter({ (word:Word) -> Bool in
+            let titleMatch = word.title.rangeOfString(searchText, options: .CaseInsensitiveSearch )
+            let descMatch = word.wordDescription.rangeOfString(searchText, options: .CaseInsensitiveSearch )
+            return ( (titleMatch != nil) || (descMatch != nil) )
+        })
+    }
+    
+    func fetchDataFromDB(){
+        //Core Data
+        let fetchRequest = NSFetchRequest( entityName: "Word" )
+        let sortDescriptor = NSSortDescriptor( key: "title", ascending: true )
+        let managedObjCtx = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchResultsController = NSFetchedResultsController( fetchRequest: fetchRequest, managedObjectContext: managedObjCtx, sectionNameKeyPath: nil, cacheName: nil )
+        fetchResultsController.delegate = self
+        do{
+            try fetchResultsController.performFetch()
+            self.words = fetchResultsController.fetchedObjects as! [Word]
+        }catch{
+            print( error )
         }
     }
 
@@ -46,62 +82,69 @@ class HomeTableViewController: UITableViewController {
     }
 
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return sampleData.count
+        if searchController.active { return searchResults.count }
+        else{ return words.count }
     }
 
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath) as! WordCell
-        let word = sampleData[indexPath.row]
+        let word = searchController.active ? searchResults[indexPath.row] : words[indexPath.row]
         cell.title.text = word.title
-        cell.desc.text = word.description
+        cell.desc.text = word.wordDescription
+        cell.picture.image = UIImage(data: word.picture!)
         cell.picture.layer.cornerRadius = cell.picture.frame.size.width / 2
         cell.picture.clipsToBounds = true 
         return cell
     }
 
-    /*
+    // MARK: => Table View Delegate
     // Override to support conditional editing of the table view.
     override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+        if searchController.active { return false }
+        else{ return true }
     }
-    */
-
-    /*
+    
     // Override to support editing the table view.
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == .Delete {
             // Delete the row from the data source
+            let managedObjCtx = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+            let wordDelete = self.fetchResultsController.objectAtIndexPath(indexPath) as! Word
+            managedObjCtx.deleteObject( wordDelete )
+            do{ try managedObjCtx.save() }catch{ print("Delete Error: \(error)") }
             tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-        } else if editingStyle == .Insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+        }
     }
-    */
+}
 
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-
+extension HomeTableViewController: NSFetchedResultsControllerDelegate {
+    func controllerWillChangeContent(controller: NSFetchedResultsController) {
+        tableView.beginUpdates()
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
-        return true
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        switch type {
+        case .Insert:
+            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Fade )
+        //case .Delete:
+            //tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade )
+        case .Update:
+            tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade )
+        default:
+            tableView.reloadData()
+        }
+        words = controller.fetchedObjects as! [Word]
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    
+    func controllerDidChangeContent(controller: NSFetchedResultsController) {
+        tableView.endUpdates()
     }
-    */
+}
 
+extension HomeTableViewController: UISearchResultsUpdating {
+    func updateSearchResultsForSearchController(searchController: UISearchController) {
+        let search = searchController.searchBar.text
+        filterConentForSearchText( search! )
+        tableView.reloadData()
+    }
 }
