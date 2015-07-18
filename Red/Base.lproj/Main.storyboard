@@ -384,7 +384,7 @@
                                 </constraints>
                             </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M9C-1I-EIl">
-                                <rect key="frame" x="40" y="370" width="248" height="128"/>
+                                <rect key="frame" x="40" y="370" width="240" height="128"/>
                                 <animations/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
@@ -404,7 +404,7 @@
                             <constraint firstItem="Uzt-ji-pmF" firstAttribute="top" secondItem="zIK-Yz-hJR" secondAttribute="bottom" constant="442" id="87s-ve-GSz"/>
                             <constraint firstItem="M9C-1I-EIl" firstAttribute="top" secondItem="53e-GS-jGj" secondAttribute="bottom" constant="15" id="8X3-lP-LDF"/>
                             <constraint firstItem="53e-GS-jGj" firstAttribute="leading" secondItem="07h-Kt-AEl" secondAttribute="leadingMargin" constant="8" id="BZR-Aa-ghz"/>
-                            <constraint firstItem="M9C-1I-EIl" firstAttribute="centerX" secondItem="53e-GS-jGj" secondAttribute="centerX" id="DaM-KP-7lQ"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="M9C-1I-EIl" secondAttribute="trailing" constant="24" id="H2E-Vw-gjT"/>
                             <constraint firstItem="53e-GS-jGj" firstAttribute="trailing" secondItem="07h-Kt-AEl" secondAttribute="trailingMargin" id="OAr-as-eBX"/>
                             <constraint firstItem="M9C-1I-EIl" firstAttribute="top" secondItem="zIK-Yz-hJR" secondAttribute="bottom" constant="244" id="R6M-VK-gzb"/>
                             <constraint firstItem="zIK-Yz-hJR" firstAttribute="top" relation="lessThanOrEqual" secondItem="BGi-SV-5MX" secondAttribute="bottom" constant="41" id="STN-cy-gqh"/>
