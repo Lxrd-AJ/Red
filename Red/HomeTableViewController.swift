@@ -45,6 +45,14 @@ class HomeTableViewController: UITableViewController {
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
+        if segue.identifier == "showWord" {
+            let destController = segue.destinationViewController as! WordViewController
+            if let indexPath = tableView.indexPathForSelectedRow {
+                if searchController.active {
+                    destController.word = searchResults[ indexPath.row ]
+                }else{ destController.word = words[ indexPath.row ] }
+            }
+        }
     }
     
     @IBAction func unwindToSegue( segue:UIStoryboardSegue ) {
