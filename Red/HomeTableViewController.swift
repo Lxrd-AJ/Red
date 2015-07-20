@@ -9,6 +9,7 @@
 import UIKit
 import CoreData
 
+//TODO: Try Using UIDynamics for the CollectionView Cells or Something
 class HomeTableViewController: UITableViewController {
     
     var words: [Word] = []
@@ -94,16 +95,16 @@ class HomeTableViewController: UITableViewController {
         else{ return words.count }
     }
 
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath) as! WordCell
-        let word = searchController.active ? searchResults[indexPath.row] : words[indexPath.row]
-        cell.title.text = word.title
-        cell.desc.text = word.wordDescription
-        cell.picture.image = UIImage(data: word.picture!)
-        cell.picture.layer.cornerRadius = cell.picture.frame.size.width / 2
-        cell.picture.clipsToBounds = true 
-        return cell
-    }
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("HomeCell", forIndexPath: indexPath) as! WordCell
+//        let word = searchController.active ? searchResults[indexPath.row] : words[indexPath.row]
+//        cell.title.text = word.title
+//        cell.desc.text = word.wordDescription
+//        cell.picture.image = UIImage(data: word.picture!)
+//        cell.picture.layer.cornerRadius = cell.picture.frame.size.width / 2
+//        cell.picture.clipsToBounds = true 
+//        return cell
+//    }
 
     // MARK: => Table View Delegate
     // Override to support conditional editing of the table view.

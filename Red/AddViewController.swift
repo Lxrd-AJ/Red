@@ -25,6 +25,7 @@ class AddViewController: UITableViewController {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     var word: Word!
+    var homeController: HomeCollectionViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -92,11 +93,11 @@ class AddViewController: UITableViewController {
             if self.audioURL != nil {
                 self.word.audio = NSData( contentsOfURL: self.audioURL )
             }
-            //Save to DB
-            do{ try managedObjContext.save() }
-            catch{ print("Insertion Error:\((error as NSError).localizedDescription)") }
             //Close up
-            defer{ self.navigationController?.dismissViewControllerAnimated(true , completion: nil) }
+            defer{
+                homeController.addNewWord( self.word, context: managedObjContext )
+                self.navigationController?.dismissViewControllerAnimated(true , completion: nil)
+            }
         }
     }
     

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		211CD7401B5D3C4700639689 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */; };
+		211CD7421B5D44CD00639689 /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */; };
 		212DAD911B5A3504007E80F2 /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212DAD901B5A3504007E80F2 /* WordViewController.swift */; };
 		21D6283A1B4F5A4A00E6E4DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D628391B4F5A4A00E6E4DB /* AppDelegate.swift */; };
 		21D6283F1B4F5A4A00E6E4DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D6283D1B4F5A4A00E6E4DB /* Main.storyboard */; };
@@ -19,7 +21,6 @@
 		21D6286D1B4F5F2C00E6E4DB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6286C1B4F5F2C00E6E4DB /* SettingsViewController.swift */; };
 		21D6286F1B4F5F9200E6E4DB /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6286E1B4F5F9200E6E4DB /* AddViewController.swift */; };
 		21D628741B4F62AA00E6E4DB /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D628731B4F62AA00E6E4DB /* Word.swift */; };
-		21D628761B4F65A000E6E4DB /* WordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D628751B4F65A000E6E4DB /* WordCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +41,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
+		211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
 		212DAD901B5A3504007E80F2 /* WordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		21D628361B4F5A4A00E6E4DB /* Red.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Red.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D628391B4F5A4A00E6E4DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,7 +61,6 @@
 		21D6286C1B4F5F2C00E6E4DB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		21D6286E1B4F5F9200E6E4DB /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		21D628731B4F62AA00E6E4DB /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
-		21D628751B4F65A000E6E4DB /* WordCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,8 +121,9 @@
 				21D6286A1B4F5EF500E6E4DB /* HomeTableViewController.swift */,
 				21D6286C1B4F5F2C00E6E4DB /* SettingsViewController.swift */,
 				21D6286E1B4F5F9200E6E4DB /* AddViewController.swift */,
-				21D628751B4F65A000E6E4DB /* WordCell.swift */,
 				212DAD901B5A3504007E80F2 /* WordViewController.swift */,
+				211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */,
+				211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */,
 			);
 			path = Red;
 			sourceTree = "<group>";
@@ -282,11 +285,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				211CD7401B5D3C4700639689 /* HomeCollectionViewController.swift in Sources */,
 				21D628741B4F62AA00E6E4DB /* Word.swift in Sources */,
 				21D6286F1B4F5F9200E6E4DB /* AddViewController.swift in Sources */,
+				211CD7421B5D44CD00639689 /* WordCollectionViewCell.swift in Sources */,
 				21D6286B1B4F5EF500E6E4DB /* HomeTableViewController.swift in Sources */,
 				21D6283A1B4F5A4A00E6E4DB /* AppDelegate.swift in Sources */,
-				21D628761B4F65A000E6E4DB /* WordCell.swift in Sources */,
 				21D628421B4F5A4A00E6E4DB /* Red.xcdatamodeld in Sources */,
 				212DAD911B5A3504007E80F2 /* WordViewController.swift in Sources */,
 				21D6286D1B4F5F2C00E6E4DB /* SettingsViewController.swift in Sources */,
