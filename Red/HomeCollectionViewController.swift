@@ -53,9 +53,9 @@ class HomeCollectionViewController: UICollectionViewController {
     func fetchDataFromDB() -> [Word]?{
         //Core Data
         let fetchRequest = NSFetchRequest( entityName: "Word" )
-        let sortDescriptor = NSSortDescriptor( key: "title", ascending: true )
+        //No sorting for now: let sortDescriptor = NSSortDescriptor( key: "title", ascending: true )
         let managedObjCtx = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        fetchRequest.sortDescriptors = [sortDescriptor]
+        fetchRequest.sortDescriptors = []
         fetchResultsController = NSFetchedResultsController( fetchRequest: fetchRequest, managedObjectContext: managedObjCtx, sectionNameKeyPath: nil, cacheName: nil )
         fetchResultsController.delegate = self
         do{
@@ -69,12 +69,6 @@ class HomeCollectionViewController: UICollectionViewController {
     }
     
     func addNewWord( newWord:Word, context:NSManagedObjectContext ){
-//        let managedObjContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-//        let word = NSEntityDescription.insertNewObjectForEntityForName("Word", inManagedObjectContext: managedObjContext) as! Word
-//        word.title = newWord.title
-//        word.wordDescription = newWord.wordDescription
-//        word.picture = newWord.picture
-//        word.audio = newWord.audio
         //Save to DB
         do{
             try context.save()
@@ -96,6 +90,10 @@ class HomeCollectionViewController: UICollectionViewController {
             let navController = segue.destinationViewController as! UINavigationController
             let addVC = navController.viewControllers[0] as! AddViewController
             addVC.homeController = self 
+        }else if segue.identifier == "showWord" {
+            let wordVC = segue.destinationViewController as! WordViewController
+            let indexPath = collectionView?.indexPathsForSelectedItems()![0]
+            wordVC.word = self.words[ indexPath!.item ]
         }
     }
 
@@ -121,40 +119,26 @@ class HomeCollectionViewController: UICollectionViewController {
             cell.imageView.layer.cornerRadius = cell.imageView.frame.width / 2
             cell.imageView.clipsToBounds = true
         }
+        if word.audio == nil { cell.playButton.hidden = true }
         return cell
     }
 
     // MARK: UICollectionViewDelegate
-
-    /*
-    // Uncomment this method to specify if the specified item should be highlighted during tracking
     override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    */
 
-    /*
-    // Uncomment this method to specify if the specified item should be selected
     override func collectionView(collectionView: UICollectionView, shouldSelectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
-    */
 
-    /*
-    // Uncomment these methods to specify if an action menu should be displayed for the specified item, and react to actions performed on the item
-    override func collectionView(collectionView: UICollectionView, shouldShowMenuForItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return false
+    override func collectionView(collectionView: UICollectionView, shouldDeselectItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+        return true
     }
-
-    override func collectionView(collectionView: UICollectionView, canPerformAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) -> Bool {
-        return false
-    }
-
-    override func collectionView(collectionView: UICollectionView, performAction action: Selector, forItemAtIndexPath indexPath: NSIndexPath, withSender sender: AnyObject?) {
     
+    override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        
     }
-    */
-
 }
 
 extension HomeCollectionViewController: NSFetchedResultsControllerDelegate {

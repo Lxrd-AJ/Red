@@ -20,6 +20,7 @@ class AddViewController: UITableViewController {
     @IBOutlet weak var audioLabel: UILabel!
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
+    @IBOutlet weak var lastCell: UITableViewCell!
     var audioURL: NSURL!
     var audioSettings: [String:AnyObject]!
     var audioRecorder: AVAudioRecorder!
@@ -33,6 +34,7 @@ class AddViewController: UITableViewController {
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
         alert.addAction( cancelAction )
         self.playButton.hidden = true
+        lastCell.hidden = true
         
         //Audio Permissions
         do{
@@ -67,7 +69,7 @@ class AddViewController: UITableViewController {
             if UIImagePickerController.isSourceTypeAvailable( .PhotoLibrary ) {
                 let imagePicker = UIImagePickerController()
                 imagePicker.allowsEditing = true
-                imagePicker.sourceType = .PhotoLibrary
+                imagePicker.sourceType = .Camera //.PhotoLibrary |
                 imagePicker.delegate = self
                 self.presentViewController( imagePicker, animated: true, completion: nil )
             }else{
