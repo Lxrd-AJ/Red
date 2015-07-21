@@ -18,9 +18,9 @@ class HomeCollectionViewController: UICollectionViewController {
     var searchResults: [Word] = []
     var searchController: UISearchController!
     var fetchResultsController: NSFetchedResultsController!
-    var selectedIndexPath: NSIndexPath?
-    var longPressGesture: UILongPressGestureRecognizer!
-    var panGesture: UIPanGestureRecognizer!
+//    var selectedIndexPath: NSIndexPath?
+//    var longPressGesture: UILongPressGestureRecognizer!
+//    var panGesture: UIPanGestureRecognizer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,13 +33,13 @@ class HomeCollectionViewController: UICollectionViewController {
         //self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
         //self.collectionView!.registerClass(UISearchBar.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
         //Additional Setup
-        longPressGesture = UILongPressGestureRecognizer( target: self, action: "handleLongGesture:" )
-        longPressGesture.delegate = self
-        self.collectionView?.addGestureRecognizer( longPressGesture )
-        
-        panGesture = UIPanGestureRecognizer( target: self, action: "handlePanGesture:" )
-        panGesture.delegate = self
-        self.collectionView?.addGestureRecognizer( panGesture )
+//        longPressGesture = UILongPressGestureRecognizer( target: self, action: "handleLongGesture:" )
+//        longPressGesture.delegate = self
+//        self.collectionView?.addGestureRecognizer( longPressGesture )
+//        
+//        panGesture = UIPanGestureRecognizer( target: self, action: "handlePanGesture:" )
+//        panGesture.delegate = self
+//        self.collectionView?.addGestureRecognizer( panGesture )
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -52,45 +52,45 @@ class HomeCollectionViewController: UICollectionViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func handleLongGesture( gesture:UILongPressGestureRecognizer ){
-        switch gesture.state {
-        case .Began:
-            selectedIndexPath = self.collectionView?.indexPathForItemAtPoint(gesture.locationInView(collectionView))
-        case .Changed:
-            break
-        default:
-            selectedIndexPath = nil
-        }
-    }
+//    func handleLongGesture( gesture:UILongPressGestureRecognizer ){
+//        switch gesture.state {
+//        case .Began:
+//            selectedIndexPath = self.collectionView?.indexPathForItemAtPoint(gesture.locationInView(collectionView))
+//        case .Changed:
+//            break
+//        default:
+//            selectedIndexPath = nil
+//        }
+//    }
     
-    func handlePanGesture( gesture:UIPanGestureRecognizer ){
-        switch gesture.state {
-        case .Began:
-            if #available(iOS 9.0, *) {
-                collectionView?.beginInteractiveMovementForItemAtIndexPath( selectedIndexPath! )
-            } else {
-                // Fallback on earlier versions
-            }
-        case .Changed:
-            if #available(iOS 9.0, *) {
-                collectionView?.updateInteractiveMovementTargetPosition(gesture.locationInView(gesture.view!))
-            } else {
-                // Fallback on earlier versions
-            }
-        case .Ended:
-            if #available(iOS 9.0, *) {
-                collectionView?.endInteractiveMovement()
-            } else {
-                // Fallback on earlier versions
-            }
-        default:
-            if #available(iOS 9.0, *) {
-                collectionView?.cancelInteractiveMovement()
-            } else {
-                // Fallback on earlier versions
-            }
-        }
-    }
+//    func handlePanGesture( gesture:UIPanGestureRecognizer ){
+//        switch gesture.state {
+//        case .Began:
+//            if #available(iOS 9.0, *) {
+//                collectionView?.beginInteractiveMovementForItemAtIndexPath( selectedIndexPath! )
+//            } else {
+//                // Fallback on earlier versions
+//            }
+//        case .Changed:
+//            if #available(iOS 9.0, *) {
+//                collectionView?.updateInteractiveMovementTargetPosition(gesture.locationInView(gesture.view!))
+//            } else {
+//                // Fallback on earlier versions
+//            }
+//        case .Ended:
+//            if #available(iOS 9.0, *) {
+//                collectionView?.endInteractiveMovement()
+//            } else {
+//                // Fallback on earlier versions
+//            }
+//        default:
+//            if #available(iOS 9.0, *) {
+//                collectionView?.cancelInteractiveMovement()
+//            } else {
+//                // Fallback on earlier versions
+//            }
+//        }
+//    }
     
     func filterConentForSearchText( searchText:String ){
         searchResults = words.filter({ (word:Word) -> Bool in
@@ -174,10 +174,6 @@ class HomeCollectionViewController: UICollectionViewController {
         if word.audio == nil { cell.playButton.hidden = true }
         return cell
     }
-    
-//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-//        return UIEdgeInsets(top: self.searchController.searchBar.frame.size.height, left: 0, bottom: 0, right: 0 )
-//    }
 
     // MARK: UICollectionViewDelegate
     override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -205,16 +201,15 @@ extension HomeCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
-extension HomeCollectionViewController: UIGestureRecognizerDelegate {
-    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
-        if gestureRecognizer == longPressGesture { return panGesture == otherGestureRecognizer }
-        if panGesture == gestureRecognizer { return longPressGesture == otherGestureRecognizer }
+extension HomeCollectionViewController: LXReorderableCollectionViewDataSource {
+    override func collectionView(collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool {
         return true
     }
     
-    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
-        guard gestureRecognizer == self.panGesture else{ return true }
-        return selectedIndexPath != nil
+    func collectionView(collectionView: UICollectionView!, itemAtIndexPath fromIndexPath: NSIndexPath!, willMoveToIndexPath toIndexPath: NSIndexPath!) {
+        let word = self.words[ fromIndexPath.item ]
+        self.words.removeAtIndex( fromIndexPath.item )
+        self.words.insert(word, atIndex: toIndexPath.item )
     }
 }
 
