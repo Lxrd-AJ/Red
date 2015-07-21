@@ -59,6 +59,20 @@ class AddViewController: UITableViewController {
         }
     }
 
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        //Try and Populate the View
+        if word != nil {
+            if word.title != nil { self.titleField.text = word.title }
+            if word.picture != nil { self.imageView.image = UIImage( data: word.picture! ) }
+            if word.wordDescription != nil { self.descriptionField.text = word.wordDescription }
+            if word.audio != nil {
+                self.audioLabel.text = word.title
+            }else{ playButton.hidden = true }
+        }
+        
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -69,7 +83,7 @@ class AddViewController: UITableViewController {
             if UIImagePickerController.isSourceTypeAvailable( .PhotoLibrary ) {
                 let imagePicker = UIImagePickerController()
                 imagePicker.allowsEditing = true
-                imagePicker.sourceType = .Camera //.PhotoLibrary |
+                imagePicker.sourceType = .PhotoLibrary //.Camera
                 imagePicker.delegate = self
                 self.presentViewController( imagePicker, animated: true, completion: nil )
             }else{
@@ -88,7 +102,9 @@ class AddViewController: UITableViewController {
             presentViewController(alert, animated: true, completion: nil)
         }else{
             let managedObjContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-            self.word = NSEntityDescription.insertNewObjectForEntityForName("Word", inManagedObjectContext: managedObjContext) as! Word
+            if word == nil { //If its a new word
+                self.word = NSEntityDescription.insertNewObjectForEntityForName("Word", inManagedObjectContext: managedObjContext) as! Word
+            }
             self.word.title = titleField.text
             self.word.wordDescription = descriptionField.text
             self.word.picture = UIImagePNGRepresentation( self.imageView.image! )
@@ -97,9 +113,20 @@ class AddViewController: UITableViewController {
             }
             //Close up
             defer{
-                homeController.addNewWord( self.word, context: managedObjContext )
-                self.navigationController?.dismissViewControllerAnimated(true , completion: nil)
+                homeController.saveWord( self.word, context: managedObjContext )
+                if self.navigationController != nil {
+                    self.navigationController?.dismissViewControllerAnimated(true , completion: nil)
+                }else{ self.dismissViewControllerAnimated(true, completion: nil) }
             }
+        }
+    }
+    
+    @IBAction func deleteWord(){
+        if word != nil {
+            let managedObjContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
+            managedObjContext.deleteObject(word)
+            homeController.saveWord(nil , context: managedObjContext)
+            self.performSegueWithIdentifier("unwindToHome", sender: self)
         }
     }
     
@@ -131,6 +158,7 @@ class AddViewController: UITableViewController {
                         self.recordButton.setTitle("Stop", forState: .Normal )
                     }catch{
                         alert.message = "Failed to Record"
+                        //alert.addAction( cancelAction )
                         self.presentViewController(alert, animated: true, completion: nil)
                     }
 
@@ -143,7 +171,7 @@ class AddViewController: UITableViewController {
     }
     
     @IBAction func play( sender:AnyObject ){
-        if self.audioRecorder.recording {
+        if self.audioRecorder != nil && self.audioRecorder.recording {
             alert.message = "Cannot Play Whilst Recording"
             presentViewController(alert, animated: true, completion: nil)
         }else if self.audioPlayer != nil && self.audioPlayer.playing {
@@ -152,15 +180,17 @@ class AddViewController: UITableViewController {
             self.playButton.setTitle("Play", forState: .Normal )
         }else{
             do{
-                let fileData = try NSData( contentsOfURL: self.audioURL, options: .MappedRead )
-                self.audioPlayer = try AVAudioPlayer( data: fileData )
-                self.audioPlayer.delegate = self
-                self.audioPlayer.prepareToPlay()
-                if self.audioPlayer.play() {
-                    self.playButton.setTitle("Stop", forState: .Normal )
-                }else{
-                    alert.message = "Cannot Play Audio"
-                    presentViewController(alert, animated: true, completion: nil)
+                if self.audioURL != nil {
+                    let fileData = try NSData( contentsOfURL: self.audioURL, options: .MappedRead )
+                    self.audioPlayer = try AVAudioPlayer( data: fileData )
+                    self.audioPlayer.delegate = self
+                    self.audioPlayer.prepareToPlay()
+                    if self.audioPlayer.play() {
+                        self.playButton.setTitle("Stop", forState: .Normal )
+                    }else{
+                        alert.message = "Cannot Play Audio"
+                        presentViewController(alert, animated: true, completion: nil)
+                    }
                 }
             }catch{
                 alert.message = "Cannot access file on disk"

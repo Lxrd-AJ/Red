@@ -11,12 +11,16 @@ import CoreData
 
 private let reuseIdentifier = "wordCell"
 
+//TODO: Add SearchController
 class HomeCollectionViewController: UICollectionViewController {
     
     var words: [Word] = []
     var searchResults: [Word] = []
     var searchController: UISearchController!
     var fetchResultsController: NSFetchedResultsController!
+    var selectedIndexPath: NSIndexPath?
+    var longPressGesture: UILongPressGestureRecognizer!
+    var panGesture: UIPanGestureRecognizer!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,9 +31,15 @@ class HomeCollectionViewController: UICollectionViewController {
 
         // Register cell classes
         //self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        //self.collectionView!.registerClass(UISearchBar.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "")
+        //self.collectionView!.registerClass(UISearchBar.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
         //Additional Setup
+        longPressGesture = UILongPressGestureRecognizer( target: self, action: "handleLongGesture:" )
+        longPressGesture.delegate = self
+        self.collectionView?.addGestureRecognizer( longPressGesture )
         
+        panGesture = UIPanGestureRecognizer( target: self, action: "handlePanGesture:" )
+        panGesture.delegate = self
+        self.collectionView?.addGestureRecognizer( panGesture )
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -40,6 +50,46 @@ class HomeCollectionViewController: UICollectionViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    func handleLongGesture( gesture:UILongPressGestureRecognizer ){
+        switch gesture.state {
+        case .Began:
+            selectedIndexPath = self.collectionView?.indexPathForItemAtPoint(gesture.locationInView(collectionView))
+        case .Changed:
+            break
+        default:
+            selectedIndexPath = nil
+        }
+    }
+    
+    func handlePanGesture( gesture:UIPanGestureRecognizer ){
+        switch gesture.state {
+        case .Began:
+            if #available(iOS 9.0, *) {
+                collectionView?.beginInteractiveMovementForItemAtIndexPath( selectedIndexPath! )
+            } else {
+                // Fallback on earlier versions
+            }
+        case .Changed:
+            if #available(iOS 9.0, *) {
+                collectionView?.updateInteractiveMovementTargetPosition(gesture.locationInView(gesture.view!))
+            } else {
+                // Fallback on earlier versions
+            }
+        case .Ended:
+            if #available(iOS 9.0, *) {
+                collectionView?.endInteractiveMovement()
+            } else {
+                // Fallback on earlier versions
+            }
+        default:
+            if #available(iOS 9.0, *) {
+                collectionView?.cancelInteractiveMovement()
+            } else {
+                // Fallback on earlier versions
+            }
+        }
     }
     
     func filterConentForSearchText( searchText:String ){
@@ -61,14 +111,14 @@ class HomeCollectionViewController: UICollectionViewController {
         do{
             try fetchResultsController.performFetch()
             let words = fetchResultsController.fetchedObjects as! [Word]
-            return words
+            return words.reverse()
         }catch{
             print( error )
             return nil
         }
     }
     
-    func addNewWord( newWord:Word, context:NSManagedObjectContext ){
+    func saveWord( newWord:Word?, context:NSManagedObjectContext ){
         //Save to DB
         do{
             try context.save()
@@ -94,6 +144,7 @@ class HomeCollectionViewController: UICollectionViewController {
             let wordVC = segue.destinationViewController as! WordViewController
             let indexPath = collectionView?.indexPathsForSelectedItems()![0]
             wordVC.word = self.words[ indexPath!.item ]
+            wordVC.homeVC = self 
         }
     }
 
@@ -119,9 +170,14 @@ class HomeCollectionViewController: UICollectionViewController {
             cell.imageView.layer.cornerRadius = cell.imageView.frame.width / 2
             cell.imageView.clipsToBounds = true
         }
+        //TODO: Fix Audio bug: audio image noe showing for some cells
         if word.audio == nil { cell.playButton.hidden = true }
         return cell
     }
+    
+//    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
+//        return UIEdgeInsets(top: self.searchController.searchBar.frame.size.height, left: 0, bottom: 0, right: 0 )
+//    }
 
     // MARK: UICollectionViewDelegate
     override func collectionView(collectionView: UICollectionView, shouldHighlightItemAtIndexPath indexPath: NSIndexPath) -> Bool {
@@ -148,3 +204,30 @@ extension HomeCollectionViewController: NSFetchedResultsControllerDelegate {
 extension HomeCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 }
+
+extension HomeCollectionViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWithGestureRecognizer otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        if gestureRecognizer == longPressGesture { return panGesture == otherGestureRecognizer }
+        if panGesture == gestureRecognizer { return longPressGesture == otherGestureRecognizer }
+        return true
+    }
+    
+    func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
+        guard gestureRecognizer == self.panGesture else{ return true }
+        return selectedIndexPath != nil
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
