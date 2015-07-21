@@ -18,9 +18,7 @@ class HomeCollectionViewController: UICollectionViewController {
     var searchResults: [Word] = []
     var searchController: UISearchController!
     var fetchResultsController: NSFetchedResultsController!
-//    var selectedIndexPath: NSIndexPath?
-//    var longPressGesture: UILongPressGestureRecognizer!
-//    var panGesture: UIPanGestureRecognizer!
+    let managedObjCtx = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -103,15 +101,14 @@ class HomeCollectionViewController: UICollectionViewController {
     func fetchDataFromDB() -> [Word]?{
         //Core Data
         let fetchRequest = NSFetchRequest( entityName: "Word" )
-        //No sorting for now: let sortDescriptor = NSSortDescriptor( key: "title", ascending: true )
-        let managedObjCtx = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-        fetchRequest.sortDescriptors = []
+        let sortDescriptor = NSSortDescriptor( key: "displayOrder", ascending: true )
+        fetchRequest.sortDescriptors = [sortDescriptor]
         fetchResultsController = NSFetchedResultsController( fetchRequest: fetchRequest, managedObjectContext: managedObjCtx, sectionNameKeyPath: nil, cacheName: nil )
         fetchResultsController.delegate = self
         do{
             try fetchResultsController.performFetch()
             let words = fetchResultsController.fetchedObjects as! [Word]
-            return words.reverse()
+            return words
         }catch{
             print( error )
             return nil
@@ -194,7 +191,9 @@ class HomeCollectionViewController: UICollectionViewController {
 }
 
 extension HomeCollectionViewController: NSFetchedResultsControllerDelegate {
-    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+        do{ try managedObjCtx.save() }catch{ print("\(error)") }
+    }
 }
 
 extension HomeCollectionViewController: UICollectionViewDelegateFlowLayout {
@@ -211,6 +210,13 @@ extension HomeCollectionViewController: LXReorderableCollectionViewDataSource {
         self.words.removeAtIndex( fromIndexPath.item )
         self.words.insert(word, atIndex: toIndexPath.item )
     }
+    
+    func collectionView(collectionView: UICollectionView!, itemAtIndexPath fromIndexPath: NSIndexPath!, didMoveToIndexPath toIndexPath: NSIndexPath!) {
+        //Update the display order
+        var i = 0
+        self.words.map({ $0.setValue(i++, forKey:"displayOrder") })
+    }
+
 }
 
 
