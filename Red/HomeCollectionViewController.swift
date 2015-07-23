@@ -24,20 +24,6 @@ class HomeCollectionViewController: UICollectionViewController {
         super.viewDidLoad()
         self.collectionView?.backgroundColor = UIColor.whiteColor()
         self.words = fetchDataFromDB()!
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Register cell classes
-        //self.collectionView!.registerClass(UICollectionViewCell.self, forCellWithReuseIdentifier: reuseIdentifier)
-        //self.collectionView!.registerClass(UISearchBar.self, forSupplementaryViewOfKind: UICollectionElementKindSectionHeader, withReuseIdentifier: "header")
-        //Additional Setup
-//        longPressGesture = UILongPressGestureRecognizer( target: self, action: "handleLongGesture:" )
-//        longPressGesture.delegate = self
-//        self.collectionView?.addGestureRecognizer( longPressGesture )
-//        
-//        panGesture = UIPanGestureRecognizer( target: self, action: "handlePanGesture:" )
-//        panGesture.delegate = self
-//        self.collectionView?.addGestureRecognizer( panGesture )
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -49,46 +35,6 @@ class HomeCollectionViewController: UICollectionViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
-//    func handleLongGesture( gesture:UILongPressGestureRecognizer ){
-//        switch gesture.state {
-//        case .Began:
-//            selectedIndexPath = self.collectionView?.indexPathForItemAtPoint(gesture.locationInView(collectionView))
-//        case .Changed:
-//            break
-//        default:
-//            selectedIndexPath = nil
-//        }
-//    }
-    
-//    func handlePanGesture( gesture:UIPanGestureRecognizer ){
-//        switch gesture.state {
-//        case .Began:
-//            if #available(iOS 9.0, *) {
-//                collectionView?.beginInteractiveMovementForItemAtIndexPath( selectedIndexPath! )
-//            } else {
-//                // Fallback on earlier versions
-//            }
-//        case .Changed:
-//            if #available(iOS 9.0, *) {
-//                collectionView?.updateInteractiveMovementTargetPosition(gesture.locationInView(gesture.view!))
-//            } else {
-//                // Fallback on earlier versions
-//            }
-//        case .Ended:
-//            if #available(iOS 9.0, *) {
-//                collectionView?.endInteractiveMovement()
-//            } else {
-//                // Fallback on earlier versions
-//            }
-//        default:
-//            if #available(iOS 9.0, *) {
-//                collectionView?.cancelInteractiveMovement()
-//            } else {
-//                // Fallback on earlier versions
-//            }
-//        }
-//    }
     
     func filterConentForSearchText( searchText:String ){
         searchResults = words.filter({ (word:Word) -> Bool in
@@ -120,7 +66,7 @@ class HomeCollectionViewController: UICollectionViewController {
         do{
             try context.save()
             self.words = fetchDataFromDB()!
-            //TODO: Fix Bug here
+            //FIXME: CollectionView complains about the way we insert new items
             //collectionView?.insertItemsAtIndexPaths([NSIndexPath(forItem: self.words.count, inSection: 0)])
             collectionView?.reloadData()
         }
@@ -167,7 +113,7 @@ class HomeCollectionViewController: UICollectionViewController {
             cell.imageView.layer.cornerRadius = cell.imageView.frame.width / 2
             cell.imageView.clipsToBounds = true
         }
-        //TODO: Fix Audio bug: audio image noe showing for some cells
+        //FIXME: Fix Audio bug: audio image noe showing for some cells
         if word.audio == nil { cell.playButton.hidden = true }
         return cell
     }
