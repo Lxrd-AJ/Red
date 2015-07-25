@@ -15,27 +15,27 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "21D628351B4F5A4A00E6E4DB"
-               BuildableName = "Red.app"
-               BlueprintName = "Red"
-               ReferencedContainer = "container:Red.xcodeproj">
+               BuildableName = "My Word Bank.app"
+               BlueprintName = "My Word Bank"
+               ReferencedContainer = "container:My Word Bank.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
    </BuildAction>
    <TestAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
-      shouldUseLaunchSchemeArgsEnv = "YES"
-      buildConfiguration = "Debug">
+      shouldUseLaunchSchemeArgsEnv = "YES">
       <Testables>
          <TestableReference
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "21D6284C1B4F5A4A00E6E4DB"
-               BuildableName = "RedTests.xctest"
-               BlueprintName = "RedTests"
-               ReferencedContainer = "container:Red.xcodeproj">
+               BuildableName = "My Word Bank.xctest"
+               BlueprintName = "My Word BankTests"
+               ReferencedContainer = "container:My Word Bank.xcodeproj">
             </BuildableReference>
          </TestableReference>
          <TestableReference
@@ -43,9 +43,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "21D628571B4F5A4A00E6E4DB"
-               BuildableName = "RedUITests.xctest"
-               BlueprintName = "RedUITests"
-               ReferencedContainer = "container:Red.xcodeproj">
+               BuildableName = "My Word Bank.xctest"
+               BlueprintName = "My Word BankUITests"
+               ReferencedContainer = "container:My Word Bank.xcodeproj">
             </BuildableReference>
          </TestableReference>
       </Testables>
@@ -53,20 +53,20 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21D628351B4F5A4A00E6E4DB"
-            BuildableName = "Red.app"
-            BlueprintName = "Red"
-            ReferencedContainer = "container:Red.xcodeproj">
+            BuildableName = "My Word Bank.app"
+            BlueprintName = "My Word Bank"
+            ReferencedContainer = "container:My Word Bank.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
       </AdditionalOptions>
    </TestAction>
    <LaunchAction
+      buildConfiguration = "Debug"
       selectedDebuggerIdentifier = "Xcode.DebuggerFoundation.Debugger.LLDB"
       selectedLauncherIdentifier = "Xcode.DebuggerFoundation.Launcher.LLDB"
       launchStyle = "0"
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Debug"
       ignoresPersistentStateOnLaunch = "NO"
       debugDocumentVersioning = "YES"
       debugServiceExtension = "internal"
@@ -76,28 +76,28 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21D628351B4F5A4A00E6E4DB"
-            BuildableName = "Red.app"
-            BlueprintName = "Red"
-            ReferencedContainer = "container:Red.xcodeproj">
+            BuildableName = "My Word Bank.app"
+            BlueprintName = "My Word Bank"
+            ReferencedContainer = "container:My Word Bank.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
    <ProfileAction
+      buildConfiguration = "Release"
       shouldUseLaunchSchemeArgsEnv = "YES"
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
-      buildConfiguration = "Release"
       debugDocumentVersioning = "YES">
       <BuildableProductRunnable
          runnableDebuggingMode = "0">
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "21D628351B4F5A4A00E6E4DB"
-            BuildableName = "Red.app"
-            BlueprintName = "Red"
-            ReferencedContainer = "container:Red.xcodeproj">
+            BuildableName = "My Word Bank.app"
+            BlueprintName = "My Word Bank"
+            ReferencedContainer = "container:My Word Bank.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
