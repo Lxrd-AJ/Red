@@ -9,11 +9,12 @@
 import UIKit
 import AVFoundation
 import CoreData
-
+//FIXME: Audio Bug whenever user tries to edit recording from WordViewController segue
 class AddViewController: UITableViewController {
     
     let alert = UIAlertController( title: "Error", message: "Something Went Wrong", preferredStyle: .Alert )
     let cancelAction = UIAlertAction( title: "Ok", style: .Cancel , handler: nil )
+    let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
@@ -26,7 +27,6 @@ class AddViewController: UITableViewController {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     var word: Word!
-    var homeController: HomeCollectionViewController!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -108,12 +108,15 @@ class AddViewController: UITableViewController {
             self.word.title = titleField.text
             self.word.wordDescription = descriptionField.text
             self.word.picture = UIImagePNGRepresentation( self.imageView.image! )
+            self.word.x = Float( self.view.center.x )
+            self.word.y = Float( self.view.center.y )
             if self.audioURL != nil {
                 self.word.audio = NSData( contentsOfURL: self.audioURL )
             }
             //Close up
             defer{
-                homeController.saveWord( self.word, context: managedObjContext )
+//                homeController.saveWord( self.word, context: managedObjContext )
+                saveContext()
                 if self.navigationController != nil {
                     self.navigationController?.dismissViewControllerAnimated(true , completion: nil)
                 }else{ self.dismissViewControllerAnimated(true, completion: nil) }
@@ -125,7 +128,7 @@ class AddViewController: UITableViewController {
         if word != nil {
             let managedObjContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
             managedObjContext.deleteObject(word)
-            homeController.saveWord(nil , context: managedObjContext)
+            saveContext()
             self.performSegueWithIdentifier("unwindToHome", sender: self)
         }
     }

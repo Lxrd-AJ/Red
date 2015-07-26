@@ -16,7 +16,6 @@ class WordViewController: UIViewController {
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var descriptionView: UITextView!
     @IBOutlet weak var playButton: UIButton!
-    weak var homeVC: HomeCollectionViewController!
     var audioPlayer: AVAudioPlayer!
 
     override func viewDidLoad() {
@@ -49,7 +48,7 @@ class WordViewController: UIViewController {
             addVC.loadView()
             addVC.lastCell.hidden = false
             addVC.word = self.word
-            addVC.homeController = homeVC
+            //addVC.homeController = homeVC
         }
     }
     

@@ -82,12 +82,12 @@ class HomeCollectionViewController: UICollectionViewController {
         if segue.identifier == "addWord" {
             let navController = segue.destinationViewController as! UINavigationController
             let addVC = navController.viewControllers[0] as! AddViewController
-            addVC.homeController = self 
+            //addVC.homeController = self
         }else if segue.identifier == "showWord" {
             let wordVC = segue.destinationViewController as! WordViewController
             let indexPath = collectionView?.indexPathsForSelectedItems()![0]
             wordVC.word = self.words[ indexPath!.item ]
-            wordVC.homeVC = self 
+            //wordVC.homeVC = self
         }
     }
 
@@ -146,24 +146,24 @@ extension HomeCollectionViewController: UICollectionViewDelegateFlowLayout {
 
 }
 
-extension HomeCollectionViewController: LXReorderableCollectionViewDataSource {
-    override func collectionView(collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool {
-        return true
-    }
-    
-    func collectionView(collectionView: UICollectionView!, itemAtIndexPath fromIndexPath: NSIndexPath!, willMoveToIndexPath toIndexPath: NSIndexPath!) {
-        let word = self.words[ fromIndexPath.item ]
-        self.words.removeAtIndex( fromIndexPath.item )
-        self.words.insert(word, atIndex: toIndexPath.item )
-    }
-    
-    func collectionView(collectionView: UICollectionView!, itemAtIndexPath fromIndexPath: NSIndexPath!, didMoveToIndexPath toIndexPath: NSIndexPath!) {
-        //Update the display order
-        var i = 0
-        self.words.map({ $0.setValue(i++, forKey:"displayOrder") })
-    }
-
-}
+//extension HomeCollectionViewController: LXReorderableCollectionViewDataSource {
+//    override func collectionView(collectionView: UICollectionView, canMoveItemAtIndexPath indexPath: NSIndexPath) -> Bool {
+//        return true
+//    }
+//    
+//    func collectionView(collectionView: UICollectionView!, itemAtIndexPath fromIndexPath: NSIndexPath!, willMoveToIndexPath toIndexPath: NSIndexPath!) {
+//        let word = self.words[ fromIndexPath.item ]
+//        self.words.removeAtIndex( fromIndexPath.item )
+//        self.words.insert(word, atIndex: toIndexPath.item )
+//    }
+//    
+//    func collectionView(collectionView: UICollectionView!, itemAtIndexPath fromIndexPath: NSIndexPath!, didMoveToIndexPath toIndexPath: NSIndexPath!) {
+//        //Update the display order
+//        var i = 0
+//        self.words.map({ $0.setValue(i++, forKey:"displayOrder") })
+//    }
+//
+//}
 
 
 

@@ -15,5 +15,6 @@ class Word: NSManagedObject {
     @NSManaged var wordDescription: String!
     @NSManaged var audio: NSData?
     @NSManaged var picture: NSData?
-    
+    @NSManaged var x: Float
+    @NSManaged var y: Float
 }
