@@ -10,6 +10,9 @@
 		211CD7401B5D3C4700639689 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */; };
 		211CD7421B5D44CD00639689 /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */; };
 		212DAD911B5A3504007E80F2 /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212DAD901B5A3504007E80F2 /* WordViewController.swift */; };
+		21D5CEB21B65060B00081AA3 /* Folder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5CEB11B65060B00081AA3 /* Folder.swift */; };
+		21D5CEBD1B6538DC00081AA3 /* HomeViewControllerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5CEBC1B6538DC00081AA3 /* HomeViewControllerTests.swift */; };
+		21D5CEC21B6549C900081AA3 /* AddTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D5CEC11B6549C900081AA3 /* AddTableViewController.swift */; };
 		21D6283A1B4F5A4A00E6E4DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D628391B4F5A4A00E6E4DB /* AppDelegate.swift */; };
 		21D6283F1B4F5A4A00E6E4DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D6283D1B4F5A4A00E6E4DB /* Main.storyboard */; };
 		21D628421B4F5A4A00E6E4DB /* Red.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21D628401B4F5A4A00E6E4DB /* Red.xcdatamodeld */; };
@@ -49,6 +52,9 @@
 		211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
 		212DAD901B5A3504007E80F2 /* WordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordViewController.swift; sourceTree = "<group>"; };
 		2170F57E1B63AF65001A7DF9 /* Red v2.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Red v2.xcdatamodel"; sourceTree = "<group>"; };
+		21D5CEB11B65060B00081AA3 /* Folder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Folder.swift; sourceTree = "<group>"; };
+		21D5CEBC1B6538DC00081AA3 /* HomeViewControllerTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewControllerTests.swift; sourceTree = "<group>"; };
+		21D5CEC11B6549C900081AA3 /* AddTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddTableViewController.swift; sourceTree = "<group>"; };
 		21D628361B4F5A4A00E6E4DB /* My Word Bank.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "My Word Bank.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D628391B4F5A4A00E6E4DB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21D6283E1B4F5A4A00E6E4DB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -100,10 +106,19 @@
 		2114C73A1B6315AE0048C904 /* Deprecated */ = {
 			isa = PBXGroup;
 			children = (
+				211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */,
 				21D6286A1B4F5EF500E6E4DB /* HomeTableViewController.swift */,
 				211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */,
 			);
 			name = Deprecated;
+			sourceTree = "<group>";
+		};
+		21D5CEBE1B653B5F00081AA3 /* Controller Tests */ = {
+			isa = PBXGroup;
+			children = (
+				21D5CEBC1B6538DC00081AA3 /* HomeViewControllerTests.swift */,
+			);
+			name = "Controller Tests";
 			sourceTree = "<group>";
 		};
 		21D6282D1B4F5A4A00E6E4DB = {
@@ -149,6 +164,7 @@
 		21D628501B4F5A4A00E6E4DB /* My Word BankTests */ = {
 			isa = PBXGroup;
 			children = (
+				21D5CEBE1B653B5F00081AA3 /* Controller Tests */,
 				21D628511B4F5A4A00E6E4DB /* RedTests.swift */,
 				21D628531B4F5A4A00E6E4DB /* Info.plist */,
 			);
@@ -170,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				21D628731B4F62AA00E6E4DB /* Word.swift */,
+				21D5CEB11B65060B00081AA3 /* Folder.swift */,
 			);
 			name = Models;
 			sourceTree = "<group>";
@@ -181,7 +198,7 @@
 				21D6286C1B4F5F2C00E6E4DB /* SettingsViewController.swift */,
 				21D6286E1B4F5F9200E6E4DB /* AddViewController.swift */,
 				212DAD901B5A3504007E80F2 /* WordViewController.swift */,
-				211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */,
+				21D5CEC11B6549C900081AA3 /* AddTableViewController.swift */,
 			);
 			name = Controllers;
 			sourceTree = "<group>";
@@ -336,6 +353,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				211CD7401B5D3C4700639689 /* HomeCollectionViewController.swift in Sources */,
+				21D5CEC21B6549C900081AA3 /* AddTableViewController.swift in Sources */,
 				21D628741B4F62AA00E6E4DB /* Word.swift in Sources */,
 				21D6286F1B4F5F9200E6E4DB /* AddViewController.swift in Sources */,
 				211CD7421B5D44CD00639689 /* WordCollectionViewCell.swift in Sources */,
@@ -344,6 +362,7 @@
 				21D6283A1B4F5A4A00E6E4DB /* AppDelegate.swift in Sources */,
 				21FC45FA1B6418080029AEA1 /* Extensions.swift in Sources */,
 				21D628421B4F5A4A00E6E4DB /* Red.xcdatamodeld in Sources */,
+				21D5CEB21B65060B00081AA3 /* Folder.swift in Sources */,
 				212DAD911B5A3504007E80F2 /* WordViewController.swift in Sources */,
 				21FC45F61B6414F30029AEA1 /* WordView.swift in Sources */,
 				21D6286D1B4F5F2C00E6E4DB /* SettingsViewController.swift in Sources */,
@@ -355,6 +374,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				21D628521B4F5A4A00E6E4DB /* RedTests.swift in Sources */,
+				21D5CEBD1B6538DC00081AA3 /* HomeViewControllerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -488,6 +508,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Red/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -504,6 +525,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				DEFINES_MODULE = YES;
 				INFOPLIST_FILE = Red/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -517,7 +539,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = RedTests/Info.plist;
+				INFOPLIST_FILE = "My Word BankTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TheLeaf.RedTests;
 				PRODUCT_NAME = "My Word Bank";
@@ -529,7 +551,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = RedTests/Info.plist;
+				INFOPLIST_FILE = "My Word BankTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TheLeaf.RedTests;
 				PRODUCT_NAME = "My Word Bank";

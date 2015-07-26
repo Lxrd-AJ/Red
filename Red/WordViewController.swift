@@ -48,7 +48,7 @@ class WordViewController: UIViewController {
             addVC.loadView()
             addVC.lastCell.hidden = false
             addVC.word = self.word
-            //addVC.homeController = homeVC
+            addVC.folder = self.word.folder
         }
     }
     

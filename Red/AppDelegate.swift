@@ -9,6 +9,8 @@
 import UIKit
 import CoreData
 
+let HAS_ROOT_FOLDER: String = "HasRootFolder"
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -17,6 +19,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         window!.tintColor = UIColor.orangeColor()
+        
+        //Check if root folder exists for application
+        if !NSUserDefaults.standardUserDefaults().boolForKey(HAS_ROOT_FOLDER) {
+            //Create a Root Folder
+            if let _ = Folder.createFolder( ROOT_FOLDER, ctx: managedObjectContext ){
+                NSUserDefaults.standardUserDefaults().setBool(true, forKey: HAS_ROOT_FOLDER)
+            }else{
+                print("Failed To Get or Create Root Folder. \n Aborting......")
+                abort()
+            }
+        }
         return true
     }
 

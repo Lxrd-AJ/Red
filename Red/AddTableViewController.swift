@@ -1,23 +1,39 @@
 //
-//  SettingsViewController.swift
-//  Red
+//  AddTableViewController.swift
+//  My Word Bank
 //
-//  Created by AJ Ibraheem on 10/07/2015.
+//  Created by AJ Ibraheem on 26/07/2015.
 //  Copyright © 2015 The Leaf. All rights reserved.
 //
 
 import UIKit
 
-class SettingsViewController: UITableViewController {
+class AddTableViewController: UITableViewController {
 
+    var folder:Folder?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Uncomment the following line to preserve selection between presentations
         // self.clearsSelectionOnViewWillAppear = false
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        
+        
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        self.tableView.tableFooterView = nil
+        
+        let wordCell = self.tableView.cellForRowAtIndexPath(NSIndexPath(forRow: 0, inSection: 0))
+        wordCell!.frame.size.height = self.view.frame.height / 2
+        
+        let folderCell = self.tableView.cellForRowAtIndexPath( NSIndexPath(forRow: 1, inSection: 0) )
+        folderCell!.frame.origin.y = (wordCell?.frame.size.height)!
+        folderCell!.frame.size.height = self.view.frame.height / 2
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,25 +43,21 @@ class SettingsViewController: UITableViewController {
 
     // MARK: - Table view data source
 
-    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
-    }
+//    override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+//        // #warning Incomplete implementation, return the number of sections
+//        return 1
+//    }
+//
+//    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+//        // #warning Incomplete implementation, return the number of rows
+//        return 2
+//    }
 
-    override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
-    }
-
-    /*
-    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("reuseIdentifier", forIndexPath: indexPath)
-
-        // Configure the cell...
-
-        return cell
-    }
-    */
+//    override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+//        let cell = tableView.dequeueReusableCellWithIdentifier("addCell", forIndexPath: indexPath)
+//
+//        return cell
+//    }
 
     /*
     // Override to support conditional editing of the table view.
@@ -77,7 +89,7 @@ class SettingsViewController: UITableViewController {
     /*
     // Override to support conditional rearranging of the table view.
     override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-        // Return NO if you do not want the item to be re-orderable.
+        // Return false if you do not want the item to be re-orderable.
         return true
     }
     */

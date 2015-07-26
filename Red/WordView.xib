@@ -11,7 +11,7 @@
             <rect key="frame" x="0.0" y="0.0" width="150" height="200"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demo" translatesAutoresizingMaskIntoConstraints="NO" id="RAh-lr-XMv">
+                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="RAh-lr-XMv">
                     <rect key="frame" x="25" y="50" width="100" height="100"/>
                     <animations/>
                     <constraints>
@@ -60,7 +60,6 @@
         </view>
     </objects>
     <resources>
-        <image name="demo" width="400" height="400"/>
         <image name="volume" width="100" height="100"/>
     </resources>
 </document>

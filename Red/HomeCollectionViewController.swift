@@ -77,19 +77,19 @@ class HomeCollectionViewController: UICollectionViewController {
         if segue.identifier == "cancelAdd" {}
     }
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        if segue.identifier == "addWord" {
-            let navController = segue.destinationViewController as! UINavigationController
-            let addVC = navController.viewControllers[0] as! AddViewController
-            //addVC.homeController = self
-        }else if segue.identifier == "showWord" {
-            let wordVC = segue.destinationViewController as! WordViewController
-            let indexPath = collectionView?.indexPathsForSelectedItems()![0]
-            wordVC.word = self.words[ indexPath!.item ]
-            //wordVC.homeVC = self
-        }
-    }
+//    // In a storyboard-based application, you will often want to do a little preparation before navigation
+//    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+//        if segue.identifier == "addWord" {
+//            //let navController = segue.destinationViewController as! UINavigationController
+//            //let addVC = navController.viewControllers[0] as! AddViewController
+//            //addVC.homeController = self
+//        }else if segue.identifier == "showWord" {
+//            let wordVC = segue.destinationViewController as! WordViewController
+//            let indexPath = collectionView?.indexPathsForSelectedItems()![0]
+//            wordVC.word = self.words[ indexPath!.item ]
+//            //wordVC.homeVC = self
+//        }
+//    }
 
     //UICollectionViewDataSource
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {

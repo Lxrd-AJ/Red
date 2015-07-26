@@ -9,10 +9,14 @@
 import UIKit
 import CoreData
 
+let ROOT_FOLDER: String = "RootFolder"
+
 class HomeViewController: UIViewController {
     
     var words: [Word] = []
     var wordViews: [WordView] = []
+    var folder: Folder?
+    var animationColor: UIColor?
     var fetchResultsController: NSFetchedResultsController!
     let managedObjCtx = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
     let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
@@ -23,7 +27,11 @@ class HomeViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.words = fetchDataFromDB()
+        if folder == nil {
+            //Use Root folder
+            folder = fetchFolders(ROOT_FOLDER)![0]
+        }
+        self.words = folder!.words!.allObjects as! [Word]
         self.wordViews = transformWordsToViews(self.words)
         self.wordViews.map({ self.view.addSubview($0) })
         self.wordViews.map({ (wView: WordView) -> Void in
@@ -43,27 +51,21 @@ class HomeViewController: UIViewController {
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        if segue.identifier == "addWord" {
+            let nav = segue.destinationViewController as! UINavigationController
+            let addTVC = nav.viewControllers[0] as! AddTableViewController
+            addTVC.folder = self.folder
+        }
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touch = touches.first!
         let touchedView = touch.view
         if let wordView = touchedView as? WordView{
-            let size = wordView.frame.size
-            let color = wordView.backgroundColor
-            let animColor = UIColor( red: 245/255, green: 245/255, blue: 245/255, alpha: 0.85 )
             UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
                     self.view.bringSubviewToFront(wordView)
-                    wordView.frame.size = CGSizeMake(size.width + 5, size.height + 5)
-                    wordView.backgroundColor = animColor
-            }, completion: { _ in
-                UIView.animateWithDuration(0.2, animations: {
-                    wordView.frame.size = CGSizeMake(size.width, size.height)
-                    wordView.backgroundColor = color
-                })
-            })
+                    wordView.alpha = 0.9
+            }, completion: nil)
         }
     }
     
@@ -80,13 +82,17 @@ class HomeViewController: UIViewController {
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
         let touchedView = touches.first!.view
         if let wordView = touchedView as? WordView{
+            UIView.animateWithDuration(0.5, delay: 0, usingSpringWithDamping: 0.5, initialSpringVelocity: 1, options: UIViewAnimationOptions.CurveEaseInOut, animations: {
+                self.view.bringSubviewToFront(wordView)
+                wordView.alpha = 1
+            }, completion: nil)
             savePosition(wordView, word: self.words[ wordView.index ])
         }
     }
     
     @IBAction func unwindToHome( segue:UIStoryboardSegue ){}
     
-    func fetchDataFromDB() -> [Word]{
+    @available(*,deprecated=1.0,message="Use fetchFolder instead") func fetchDataFromDB() -> [Word]{
         //Core Data
         let fetchRequest = NSFetchRequest( entityName: "Word" )
         //let sortDescriptor = NSSortDescriptor( key: "title", ascending: true )
@@ -102,19 +108,29 @@ class HomeViewController: UIViewController {
         }
     }
     
+    func fetchFolders( name:String? ) -> [Folder]? {
+        let fetchRequest = NSFetchRequest(entityName: "Folder")
+        if name != nil {
+            let predicate = NSPredicate(format: "name == %@", name!) //One F0ld3r to rule them all 😈
+            fetchRequest.predicate = predicate
+        }
+        fetchRequest.sortDescriptors = []
+        fetchResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: managedObjCtx, sectionNameKeyPath: nil, cacheName: nil)
+        fetchResultsController.delegate = self
+        do{
+            try fetchResultsController.performFetch()
+            return fetchResultsController.fetchedObjects as? [Folder]
+        }catch{
+            print("FETCH FOLDER ERROR: \(error)")
+            return nil
+        }
+    }
+    
     func transformWordsToViews( words:[Word] ) -> [WordView] {
         let result = words.map( createViewFromWord )
         var idx = 0
         for v in result { v.index = idx; idx++ }
         return result
-//        var result: [WordView] = []
-//        var idx = 0
-//        for w in words {
-//            let v = createViewFromWord(w)
-//            v.index = idx; idx++;
-//            result.append(v)
-//        }
-//        return result
     }
     
     func createViewFromWord( word:Word ) -> WordView {
@@ -131,8 +147,11 @@ class HomeViewController: UIViewController {
     
     func wordViewTapped( tapGesture:UITapGestureRecognizer ){
         let wordVC = self.storyboard?.instantiateViewControllerWithIdentifier("wordController") as! WordViewController
-        let tappedWord = tapGesture.view as! WordView
-        wordVC.word = self.words[ tappedWord.index ]
+        let tappedWordView = tapGesture.view as! WordView
+        wordVC.word = self.words[ tappedWordView.index ]
+        UIView.animateWithDuration(0.1, delay: 0, options: .CurveEaseIn, animations: {
+            tappedWordView.alpha = 0.1
+            }, completion: { _ in tappedWordView.alpha = 1 })
         self.navigationController?.pushViewController(wordVC, animated: true)
     }
     
@@ -141,7 +160,6 @@ class HomeViewController: UIViewController {
         word.y = Float(wordView.frame.origin.y)
         saveContext()
     }
-
 }
 
 extension HomeViewController: NSFetchedResultsControllerDelegate {

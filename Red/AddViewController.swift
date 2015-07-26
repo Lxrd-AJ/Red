@@ -27,6 +27,8 @@ class AddViewController: UITableViewController {
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     var word: Word!
+    var folder: Folder?
+    var didPickImage: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -102,20 +104,23 @@ class AddViewController: UITableViewController {
             presentViewController(alert, animated: true, completion: nil)
         }else{
             let managedObjContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-            if word == nil { //If its a new word
+            if self.word == nil { //If its a new word
                 self.word = NSEntityDescription.insertNewObjectForEntityForName("Word", inManagedObjectContext: managedObjContext) as! Word
+                self.word.x = Float( self.view.center.x )
+                self.word.y = Float( self.view.center.y )
+                if didPickImage {
+                    self.word.picture = UIImagePNGRepresentation( self.imageView.image! )
+                }
+                folder!.addWords([self.word], saveCtx: saveContext)
             }
             self.word.title = titleField.text
             self.word.wordDescription = descriptionField.text
-            self.word.picture = UIImagePNGRepresentation( self.imageView.image! )
-            self.word.x = Float( self.view.center.x )
-            self.word.y = Float( self.view.center.y )
+            if didPickImage && self.word != nil { self.word.picture = UIImagePNGRepresentation( self.imageView.image! ) }
             if self.audioURL != nil {
                 self.word.audio = NSData( contentsOfURL: self.audioURL )
             }
             //Close up
             defer{
-//                homeController.saveWord( self.word, context: managedObjContext )
                 saveContext()
                 if self.navigationController != nil {
                     self.navigationController?.dismissViewControllerAnimated(true , completion: nil)
@@ -239,6 +244,7 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
         imageView.image = image
         imageView.contentMode = .ScaleAspectFill
         imageView.clipsToBounds = true
+        didPickImage = true
         dismissViewControllerAnimated( true, completion: nil )
     }
 }
