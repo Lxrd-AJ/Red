@@ -13,7 +13,7 @@ import CoreData
 class AddViewController: UITableViewController {
     
     let alert = UIAlertController( title: "Error", message: "Something Went Wrong", preferredStyle: .Alert )
-    let cancelAction = UIAlertAction( title: "Ok", style: .Cancel , handler: nil )
+    let cancelAction = UIAlertAction( title: "Ok 😞", style: .Cancel , handler: nil )
     let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleField: UITextField!
@@ -100,6 +100,7 @@ class AddViewController: UITableViewController {
     @IBAction func save(){
         //Check for the important ones
         if( titleField.text == "" ){
+            alert.title = "Stop ✋🏽"
             alert.message = "You Have to enter at least a title before saving a Word"
             presentViewController(alert, animated: true, completion: nil)
         }else{

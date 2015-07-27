@@ -122,11 +122,17 @@ class HomeViewController: UIViewController {
         if rootFolder == nil {
             //Use Root folder
             rootFolder = fetchFolders(ROOT_FOLDER)[0]
+            self.title = "Home 🏦"
+        }
+        if rootFolder?.name != ROOT_FOLDER {
+            //if not a root folder
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "🔙", style: .Plain, target: self, action: "popViewController:" )
+            self.title = rootFolder?.name
+        }else{
+            //If it is a root folder
             self.folders = fetchFolders(nil)
         }
-        if rootFolder?.name != ROOT_FOLDER { self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "🔙", style: .Plain, target: self, action: "popViewController:" ) }
         
-        self.title = rootFolder?.name
         self.words = rootFolder!.words!.allObjects as! [Word]
         self.wordViews = transformObjectsToViews(self.words) as! [WordView] //transformWordsToViews(self.words)
         self.folderViews = transformObjectsToViews(self.folders) as! [FolderView]
