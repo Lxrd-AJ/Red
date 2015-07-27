@@ -11,13 +11,17 @@ import CoreData
 
 class Folder: NSManagedObject {
     @NSManaged var creationDate: NSDate?
+    @NSManaged var lastModificationDate: NSDate?
     @NSManaged var name: String?
     @NSManaged var words: NSSet?
+    @NSManaged var x: Float
+    @NSManaged var y: Float
     
     func addWords( words:[Word] , saveCtx:() -> () ){
         var currentWords = self.words?.allObjects as! [Word]
         currentWords += words
         self.words = NSSet(array: currentWords)
+        self.lastModificationDate = NSDate()
         saveCtx()
     }
     
