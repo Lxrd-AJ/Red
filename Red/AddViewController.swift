@@ -83,13 +83,27 @@ class AddViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 { //Image Selected
-            //TODO: Also add Camera
-            if UIImagePickerController.isSourceTypeAvailable( .PhotoLibrary ) {
+            let selectController = UIAlertController(title: "Choose Source 📷", message: "", preferredStyle: .ActionSheet )
+            if UIImagePickerController.isSourceTypeAvailable( .PhotoLibrary ) || UIImagePickerController.isSourceTypeAvailable( .Camera ){
                 let imagePicker = UIImagePickerController()
                 imagePicker.allowsEditing = true
-                imagePicker.sourceType = .PhotoLibrary //.Camera
                 imagePicker.delegate = self
-                self.presentViewController( imagePicker, animated: true, completion: nil )
+                if UIImagePickerController.isSourceTypeAvailable( .Camera ){
+                    let libAction = UIAlertAction(title: "Photos Library", style: .Default , handler: { _ in imagePicker.sourceType = .PhotoLibrary
+                        self.presentViewController( imagePicker, animated: true, completion: nil )
+                    })
+                    let cameraAction = UIAlertAction(title: "Camera", style: .Default , handler: { _ in imagePicker.sourceType = .Camera
+                        self.presentViewController( imagePicker, animated: true, completion: nil )
+                    })
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel , handler: nil )
+                    selectController.addAction(libAction)
+                    selectController.addAction(cameraAction)
+                    selectController.addAction(cancelAction)
+                    presentViewController(selectController, animated: true, completion: nil)
+                }else{
+                    imagePicker.sourceType = .PhotoLibrary
+                    self.presentViewController( imagePicker, animated: true, completion: nil )
+                }
             }else{
                 //Error: Cannot access image Lib
                 alert.message = "Cannot Access the image Library"
