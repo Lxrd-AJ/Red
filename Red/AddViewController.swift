@@ -9,7 +9,7 @@
 import UIKit
 import AVFoundation
 import CoreData
-//FIXME: Audio Bug whenever user tries to edit recording from WordViewController segue
+
 class AddViewController: UITableViewController {
     
     let alert = UIAlertController( title: "Error", message: "Something Went Wrong", preferredStyle: .Alert )
@@ -34,9 +34,24 @@ class AddViewController: UITableViewController {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
-        alert.addAction( cancelAction )
         self.playButton.hidden = true
         lastCell.hidden = true
+        alert.addAction( cancelAction )
+        
+    }
+
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //Try and Populate the View
+        if word != nil {
+            if word.title != nil { self.titleField.text = word.title }
+            if word.picture != nil { self.imageView.image = UIImage( data: word.picture! ) }
+            if word.wordDescription != nil { self.descriptionField.text = word.wordDescription }
+            if word.audio != nil {
+                self.audioLabel.text = word.title
+            }else{ playButton.hidden = true }
+        }
         
         //Audio Permissions
         do{
@@ -54,25 +69,11 @@ class AddViewController: UITableViewController {
                     self!.presentViewController(self!.alert, animated: true, completion: nil)
                 }
             }
-
+            
         }catch{
             alert.message = "\((error as NSError).localizedDescription)"
             presentViewController(alert, animated: true, completion: nil)
         }
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        //Try and Populate the View
-        if word != nil {
-            if word.title != nil { self.titleField.text = word.title }
-            if word.picture != nil { self.imageView.image = UIImage( data: word.picture! ) }
-            if word.wordDescription != nil { self.descriptionField.text = word.wordDescription }
-            if word.audio != nil {
-                self.audioLabel.text = word.title
-            }else{ playButton.hidden = true }
-        }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -82,6 +83,7 @@ class AddViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 { //Image Selected
+            //TODO: Also add Camera
             if UIImagePickerController.isSourceTypeAvailable( .PhotoLibrary ) {
                 let imagePicker = UIImagePickerController()
                 imagePicker.allowsEditing = true
@@ -167,7 +169,6 @@ class AddViewController: UITableViewController {
                         self.recordButton.setTitle("Stop", forState: .Normal )
                     }catch{
                         alert.message = "Failed to Record"
-                        //alert.addAction( cancelAction )
                         self.presentViewController(alert, animated: true, completion: nil)
                     }
 
@@ -216,7 +217,10 @@ class AddViewController: UITableViewController {
             if audioRecorder.prepareToRecord() && audioRecorder.record() {
                 print("Started Recording ......")
             }else{ throw NSError( domain: "com.TheLeaf.Red", code: 0, userInfo: nil ) }
-        }catch{ throw error }
+        }catch{
+            print( error )
+            throw error
+        }
     }
     
     func stopRecording(){

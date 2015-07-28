@@ -70,6 +70,9 @@ class HomeViewController: UIViewController {
                 wordView.center = touch.locationInView(self.view)
             })
         }
+        //Find all intersecting views
+//        let intersectingViews = (self.view.subviews as! [MyView]).filter({ return CGRectIntersectsRect( touchedView!.frame, $0.frame) })
+//        intersectingViews.map({ print( $0.index ) })
     }
     
     override func touchesEnded(touches: Set<UITouch>, withEvent event: UIEvent?) {
@@ -126,7 +129,9 @@ class HomeViewController: UIViewController {
         }
         if rootFolder?.name != ROOT_FOLDER {
             //if not a root folder
-            self.navigationItem.leftBarButtonItem = UIBarButtonItem(title: "🔙", style: .Plain, target: self, action: "popViewController:" )
+            let backButton:UIBarButtonItem = UIBarButtonItem(title: "🔙", style: .Plain, target: self, action: "popViewController:" )
+            let settingsButton: UIBarButtonItem = UIBarButtonItem(image: UIImage(named: "settings")!, style: .Plain, target: self, action: "showFolderSettings:")
+            self.navigationItem.leftBarButtonItems = [backButton, settingsButton]
             self.title = rootFolder?.name
         }else{
             //If it is a root folder
@@ -235,6 +240,13 @@ class HomeViewController: UIViewController {
     
     func popViewController( barButton:UIBarButtonItem ){
         self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func showFolderSettings( barButton:UIBarButtonItem ){
+        let alert = UIAlertController(title: "Yeah! 😷", message: "It does nothing for now 😁, but it ought to take care of all Folder related settings", preferredStyle: .Alert )
+        let ok = UIAlertAction(title: "Ok", style: .Cancel , handler: nil )
+        alert.addAction(ok)
+        presentViewController(alert, animated: true, completion: nil)
     }
     
     func saveObjectPosition( objView:MyView, obj:NSManagedObject ){
