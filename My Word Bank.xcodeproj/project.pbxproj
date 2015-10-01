@@ -30,6 +30,7 @@
 		21FC45F31B6414AA0029AEA1 /* WordView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 21FC45F21B6414AA0029AEA1 /* WordView.xib */; };
 		21FC45F61B6414F30029AEA1 /* WordView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FC45F51B6414F30029AEA1 /* WordView.swift */; };
 		21FC45FA1B6418080029AEA1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21FC45F91B6418080029AEA1 /* Extensions.swift */; };
+		6F4D6BDBB2C16A3E620FBB27 /* libPods-My Word Bank.a in Frameworks */ = {isa = PBXBuildFile; fileRef = E7ABFDC63FEC1B50D4FA313C /* libPods-My Word Bank.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1CE3B5CB736578E66CDC623F /* Pods-My Word Bank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Word Bank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Word Bank/Pods-My Word Bank.debug.xcconfig"; sourceTree = "<group>"; };
 		211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
 		211EEB2B1B6597BD00CC90E6 /* FolderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderView.xib; sourceTree = "<group>"; };
@@ -80,6 +82,8 @@
 		21FC45F21B6414AA0029AEA1 /* WordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordView.xib; sourceTree = "<group>"; };
 		21FC45F51B6414F30029AEA1 /* WordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
 		21FC45F91B6418080029AEA1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		5019B75ADDDBBAEEE8E784E8 /* Pods-My Word Bank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Word Bank.release.xcconfig"; path = "Pods/Target Support Files/Pods-My Word Bank/Pods-My Word Bank.release.xcconfig"; sourceTree = "<group>"; };
+		E7ABFDC63FEC1B50D4FA313C /* libPods-My Word Bank.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-My Word Bank.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +91,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6F4D6BDBB2C16A3E620FBB27 /* libPods-My Word Bank.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -132,6 +137,8 @@
 				21D628501B4F5A4A00E6E4DB /* My Word BankTests */,
 				21D6285B1B4F5A4A00E6E4DB /* My Word BankUITests */,
 				21D628371B4F5A4A00E6E4DB /* Products */,
+				AAAA3B727EEE194C7BA5233B /* Pods */,
+				9FCAE42D985C510738CAC231 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -225,6 +232,23 @@
 			name = Utilities;
 			sourceTree = "<group>";
 		};
+		9FCAE42D985C510738CAC231 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E7ABFDC63FEC1B50D4FA313C /* libPods-My Word Bank.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		AAAA3B727EEE194C7BA5233B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1CE3B5CB736578E66CDC623F /* Pods-My Word Bank.debug.xcconfig */,
+				5019B75ADDDBBAEEE8E784E8 /* Pods-My Word Bank.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -232,9 +256,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21D628611B4F5A4A00E6E4DB /* Build configuration list for PBXNativeTarget "My Word Bank" */;
 			buildPhases = (
+				D271B9C1D0D7A1D734D4FC47 /* Check Pods Manifest.lock */,
 				21D628321B4F5A4A00E6E4DB /* Sources */,
 				21D628331B4F5A4A00E6E4DB /* Frameworks */,
 				21D628341B4F5A4A00E6E4DB /* Resources */,
+				FFE3F736238E0FE21895BAAE /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -353,6 +379,39 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		D271B9C1D0D7A1D734D4FC47 /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		FFE3F736238E0FE21895BAAE /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-My Word Bank/Pods-My Word Bank-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		21D628321B4F5A4A00E6E4DB /* Sources */ = {
@@ -512,6 +571,7 @@
 		};
 		21D628621B4F5A4A00E6E4DB /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1CE3B5CB736578E66CDC623F /* Pods-My Word Bank.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -529,6 +589,7 @@
 		};
 		21D628631B4F5A4A00E6E4DB /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5019B75ADDDBBAEEE8E784E8 /* Pods-My Word Bank.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
