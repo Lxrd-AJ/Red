@@ -2,6 +2,7 @@
 # platform :ios, '6.0'
 
 target 'My Word Bank' do
+    # https://github.com/lxcid/LXReorderableCollectionViewFlowLayout
 	pod 'LXReorderableCollectionViewFlowLayout', '~> 0.1'
 end
 

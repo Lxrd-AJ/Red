@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		211CD7401B5D3C4700639689 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */; };
-		211CD7421B5D44CD00639689 /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */; };
 		211EEB2C1B6597BD00CC90E6 /* FolderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 211EEB2B1B6597BD00CC90E6 /* FolderView.xib */; };
 		211EEB2E1B65980300CC90E6 /* FolderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211EEB2D1B65980300CC90E6 /* FolderView.swift */; };
 		211EEB301B65A4F200CC90E6 /* MyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211EEB2F1B65A4F200CC90E6 /* MyView.swift */; };
@@ -22,7 +20,6 @@
 		21D628471B4F5A4A00E6E4DB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D628451B4F5A4A00E6E4DB /* LaunchScreen.storyboard */; };
 		21D628521B4F5A4A00E6E4DB /* RedTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D628511B4F5A4A00E6E4DB /* RedTests.swift */; };
 		21D6285D1B4F5A4A00E6E4DB /* RedUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6285C1B4F5A4A00E6E4DB /* RedUITests.swift */; };
-		21D6286B1B4F5EF500E6E4DB /* HomeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6286A1B4F5EF500E6E4DB /* HomeTableViewController.swift */; };
 		21D6286D1B4F5F2C00E6E4DB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6286C1B4F5F2C00E6E4DB /* SettingsViewController.swift */; };
 		21D6286F1B4F5F9200E6E4DB /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6286E1B4F5F9200E6E4DB /* AddViewController.swift */; };
 		21D628741B4F62AA00E6E4DB /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D628731B4F62AA00E6E4DB /* Word.swift */; };
@@ -52,8 +49,6 @@
 
 /* Begin PBXFileReference section */
 		1CE3B5CB736578E66CDC623F /* Pods-My Word Bank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-My Word Bank.debug.xcconfig"; path = "Pods/Target Support Files/Pods-My Word Bank/Pods-My Word Bank.debug.xcconfig"; sourceTree = "<group>"; };
-		211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
-		211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
 		211EEB2B1B6597BD00CC90E6 /* FolderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FolderView.xib; sourceTree = "<group>"; };
 		211EEB2D1B65980300CC90E6 /* FolderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FolderView.swift; sourceTree = "<group>"; };
 		211EEB2F1B65A4F200CC90E6 /* MyView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyView.swift; sourceTree = "<group>"; };
@@ -74,7 +69,6 @@
 		21D628581B4F5A4A00E6E4DB /* My Word Bank.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "My Word Bank.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		21D6285C1B4F5A4A00E6E4DB /* RedUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RedUITests.swift; sourceTree = "<group>"; };
 		21D6285E1B4F5A4A00E6E4DB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		21D6286A1B4F5EF500E6E4DB /* HomeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeTableViewController.swift; sourceTree = "<group>"; };
 		21D6286C1B4F5F2C00E6E4DB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		21D6286E1B4F5F9200E6E4DB /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		21D628731B4F62AA00E6E4DB /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
@@ -112,16 +106,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		2114C73A1B6315AE0048C904 /* Deprecated */ = {
-			isa = PBXGroup;
-			children = (
-				211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */,
-				21D6286A1B4F5EF500E6E4DB /* HomeTableViewController.swift */,
-				211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */,
-			);
-			name = Deprecated;
-			sourceTree = "<group>";
-		};
 		21D5CEBE1B653B5F00081AA3 /* Controller Tests */ = {
 			isa = PBXGroup;
 			children = (
@@ -158,7 +142,6 @@
 				21FC45F81B6417EA0029AEA1 /* Utilities */,
 				21FC45F71B6414FA0029AEA1 /* Views */,
 				21FC45F41B6414B60029AEA1 /* Controllers */,
-				2114C73A1B6315AE0048C904 /* Deprecated */,
 				21D628721B4F629A00E6E4DB /* Models */,
 				21D628391B4F5A4A00E6E4DB /* AppDelegate.swift */,
 				21D6283D1B4F5A4A00E6E4DB /* Main.storyboard */,
@@ -418,11 +401,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				211CD7401B5D3C4700639689 /* HomeCollectionViewController.swift in Sources */,
 				21D628741B4F62AA00E6E4DB /* Word.swift in Sources */,
 				21D6286F1B4F5F9200E6E4DB /* AddViewController.swift in Sources */,
-				211CD7421B5D44CD00639689 /* WordCollectionViewCell.swift in Sources */,
-				21D6286B1B4F5EF500E6E4DB /* HomeTableViewController.swift in Sources */,
 				21FC45F11B64130E0029AEA1 /* HomeViewController.swift in Sources */,
 				21D6283A1B4F5A4A00E6E4DB /* AppDelegate.swift in Sources */,
 				21FC45FA1B6418080029AEA1 /* Extensions.swift in Sources */,
