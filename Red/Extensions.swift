@@ -16,6 +16,11 @@ extension UIView{
     }
 }
 
+func normalizedPowerLevelFromDecibels( decibels:CGFloat ) -> CGFloat {
+    if( decibels < -60.0 || decibels == 0.0 ) { return 0.0 }
+    return CGFloat(powf((powf(10.0, Float(0.05) * Float(decibels)) - powf(10.0, 0.05 * -60.0)) * (1.0 / (1.0 - powf(10.0, 0.05 * -60.0))), 1.0 / 2.0));
+}
+
 
 
 

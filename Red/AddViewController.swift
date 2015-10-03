@@ -15,6 +15,7 @@ class AddViewController: UITableViewController {
     let alert = UIAlertController( title: "Error", message: "Something Went Wrong", preferredStyle: .Alert )
     let cancelAction = UIAlertAction( title: "Ok 😞", style: .Cancel , handler: nil )
     let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
@@ -22,6 +23,8 @@ class AddViewController: UITableViewController {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var lastCell: UITableViewCell!
+    @IBOutlet weak var recordingWave:SCSiriWaveformView!
+    
     var audioURL: NSURL!
     var audioSettings: [String:AnyObject]!
     var audioRecorder: AVAudioRecorder!
@@ -29,6 +32,7 @@ class AddViewController: UITableViewController {
     var word: Word!
     var folder: Folder?
     var didPickImage: Bool = false
+    var displayLink:CADisplayLink = CADisplayLink()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +42,16 @@ class AddViewController: UITableViewController {
         lastCell.hidden = true
         alert.addAction( cancelAction )
         
+        //Add the animation to the Run loop
+        recordingWave.hidden = false; //TODO: Change
+        recordingWave.numberOfWaves = 5;
+        recordingWave.phaseShift = -0.15;
+       
+        displayLink = CADisplayLink(target: self, selector: "updateMeters")
+        displayLink.paused = true
+        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+        
+        recordingWave.updateWithLevel(0.0)
     }
 
     override func viewWillAppear(animated: Bool) {
@@ -208,7 +222,9 @@ class AddViewController: UITableViewController {
                     let fileData = try NSData( contentsOfURL: self.audioURL, options: .MappedRead )
                     self.audioPlayer = try AVAudioPlayer( data: fileData )
                     self.audioPlayer.delegate = self
+                    self.audioPlayer.meteringEnabled = true
                     self.audioPlayer.prepareToPlay()
+                    displayLink.paused = false
                     if self.audioPlayer.play() {
                         self.playButton.setTitle("Stop", forState: .Normal )
                     }else{
@@ -223,13 +239,20 @@ class AddViewController: UITableViewController {
         }
     }
     
+    //Start Recording the audio
     func startRecording( url:NSURL, settings:[String:AnyObject] ) throws {
         do{
             try self.audioRecorder = AVAudioRecorder(URL: url, settings: settings)
             audioRecorder.delegate = self
+            audioRecorder.meteringEnabled = true
+            //Let the CADisplayLink start sending notifications
+            displayLink.paused = false
             //Prepare the recorder and start recording
             if audioRecorder.prepareToRecord() && audioRecorder.record() {
                 print("Started Recording ......")
+                
+                //Show the recording animation
+                self.recordingWave.updateWithLevel(0.5)
             }else{ throw NSError( domain: "com.TheLeaf.Red", code: 0, userInfo: nil ) }
         }catch{
             print( error )
@@ -240,8 +263,22 @@ class AddViewController: UITableViewController {
     func stopRecording(){
         if self.audioRecorder.recording {
             self.audioRecorder.stop()
+            self.recordingWave.updateWithLevel(0.0)
+            displayLink.paused = true
             print("Stopped Recording")
         }else{ print("Not Recording") }
+    }
+    
+    func updateMeters(){
+        var normalizedValue:CGFloat = 0
+        if self.audioRecorder.recording {
+            audioRecorder.updateMeters()
+            normalizedValue = normalizedPowerLevelFromDecibels( CGFloat(self.audioRecorder.averagePowerForChannel(0)) )
+        }else if self.audioPlayer.playing {
+            audioPlayer.updateMeters()
+            normalizedValue = normalizedPowerLevelFromDecibels( CGFloat(self.audioPlayer.averagePowerForChannel(0)) )
+        }
+        self.recordingWave.updateWithLevel(normalizedValue)
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -272,6 +309,7 @@ extension AddViewController: AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         if flag {
             self.playButton.setTitle("Play", forState: .Normal )
+            displayLink.paused = true
         }else{ print("Audio Player did not finish Properly") }
     }
 }

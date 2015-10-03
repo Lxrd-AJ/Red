@@ -34,8 +34,8 @@ class HomeViewController: UIViewController {
     
     override func viewDidDisappear(animated: Bool) {
         super.viewDidDisappear(animated)
-        self.wordViews.map({ $0.removeFromSuperview() })
-        self.folderViews.map({ $0.removeFromSuperview() })
+        _ = self.wordViews.map({ $0.removeFromSuperview() })
+        _ = self.folderViews.map({ $0.removeFromSuperview() })
     }
 
     override func didReceiveMemoryWarning() {
@@ -119,8 +119,8 @@ class HomeViewController: UIViewController {
     }
     
     func setupViewData(){
-        self.wordViews.map({ $0.removeFromSuperview() })
-        self.folderViews.map({ $0.removeFromSuperview() })
+        _ = self.wordViews.map({ $0.removeFromSuperview() })
+        _ = self.folderViews.map({ $0.removeFromSuperview() })
         
         if rootFolder == nil {
             //Use Root folder
@@ -142,14 +142,14 @@ class HomeViewController: UIViewController {
         self.wordViews = transformObjectsToViews(self.words) as! [WordView] //transformWordsToViews(self.words)
         self.folderViews = transformObjectsToViews(self.folders) as! [FolderView]
         
-        self.folderViews.map({ self.view.addSubview($0) })
-        self.wordViews.map({ self.view.addSubview($0) })
+        _ = self.folderViews.map({ self.view.addSubview($0) })
+        _ = self.wordViews.map({ self.view.addSubview($0) })
         
-        self.wordViews.map({ (wView: WordView) -> Void in
+        _ = self.wordViews.map({ (wView: WordView) -> Void in
             let tapGesture = UITapGestureRecognizer(target: self , action: "wordViewTapped:")
             wView.addGestureRecognizer(tapGesture)
         })
-        self.folderViews.map({ (fView:FolderView) -> Void in
+        _ = self.folderViews.map({ (fView:FolderView) -> Void in
             let tapGesture = UITapGestureRecognizer(target: self, action: "folderViewTapped:")
             fView.addGestureRecognizer(tapGesture)
         })

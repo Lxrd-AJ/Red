@@ -7,180 +7,283 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		0462F19386E79EE3FE191740D07527E2 /* LXReorderableCollectionViewFlowLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C15028DF735ED3257D0D9CFD29B5655 /* LXReorderableCollectionViewFlowLayout-dummy.m */; };
-		048700A229F6F3D4DB313762D12EF7CC /* LXReorderableCollectionViewFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = F88B889B3810B0F07F847A09F0DCB4E3 /* LXReorderableCollectionViewFlowLayout.h */; };
-		157B65CC5983BAA9FDAA0C414B007B6E /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6AE6E2280B50B0288EAF05722378E32F /* CoreGraphics.framework */; };
-		6722DE7300D831DC79135DAB26732247 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A941FBD98B9DEA6CAB464AEF901DEFAA /* Foundation.framework */; };
-		9A2618FE987EFEB452BD811BFA22F752 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A941FBD98B9DEA6CAB464AEF901DEFAA /* Foundation.framework */; };
-		ADF3998AC8F6E8B8BEBE048D29918D6D /* LXReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 3927B5E532D098BADCB7EB454713159F /* LXReorderableCollectionViewFlowLayout.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
-		BABF9B5ED44978E54EE8519A0F69769E /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4549D85BD91876229E75FC56F494669C /* UIKit.framework */; };
-		FB548F72EB33EFF9385404CDCE71911A /* Pods-My Word Bank-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 967B977C1FCA99F350E9F3DCDAFBE7B7 /* Pods-My Word Bank-dummy.m */; };
+		41609762B022C54EEEFC4D03852FFDDF /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E7C79B313EB93BC5FDDDACA5EFF102 /* Foundation.framework */; };
+		423F2592C972314502D290098031044D /* SCSiriWaveformView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = B50C8125765ED68172D4880B85622977 /* SCSiriWaveformView-dummy.m */; };
+		4E4D6F834E7A784EC76BD455ACF47574 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E7C79B313EB93BC5FDDDACA5EFF102 /* Foundation.framework */; };
+		61329CBD945D06A72CFD85C342D44141 /* LXReorderableCollectionViewFlowLayout-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DF0B8F7D6EFA3CE2E94902B49A0FC9F /* LXReorderableCollectionViewFlowLayout-dummy.m */; };
+		72D8D256B6B3CAC0389A74A53820FB63 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E7C79B313EB93BC5FDDDACA5EFF102 /* Foundation.framework */; };
+		78AC30793DB71FDE9A717925F5C096CF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42C8889FEE39D4C6689484DA43A4FC8 /* CoreGraphics.framework */; };
+		87EB396876A3915F5C13597D259A2560 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D42C8889FEE39D4C6689484DA43A4FC8 /* CoreGraphics.framework */; };
+		980E6357609FD843BB7DA85030FDD146 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6898DAE78285E70B94B75F1EBDA2FD /* UIKit.framework */; };
+		A1AE9E80A072A21DB567EB3F03F94360 /* SCSiriWaveformView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D19BA184226AA3D85BFD20C367029D5 /* SCSiriWaveformView.m */; };
+		AAEAA4AC16B87CA70680C258AB8AF0F5 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D174840A15355321F765B896A5CF2A01 /* AVFoundation.framework */; };
+		B9D5CA9956F2A570864B41D878A203BA /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D6898DAE78285E70B94B75F1EBDA2FD /* UIKit.framework */; };
+		BDD9A5C03FC7DB1F359F4E00BA4DA20C /* Pods-My Word Bank-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 0B7E9F7467127C086E8286EDA1F4EC27 /* Pods-My Word Bank-dummy.m */; };
+		C7FE91A336D03E14BCF46804BA6CEED2 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C3484B66C7F42695E5C7D336E95C11E6 /* QuartzCore.framework */; };
+		C896329B46BF7F6F4AB002082531BDFD /* LXReorderableCollectionViewFlowLayout.h in Headers */ = {isa = PBXBuildFile; fileRef = BACBE34320BCB470AC07126A0EFF2600 /* LXReorderableCollectionViewFlowLayout.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		F9B613F9F55674307B766BFBFD729B5A /* LXReorderableCollectionViewFlowLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 63964C9814CE31862239C414FDD5FC1E /* LXReorderableCollectionViewFlowLayout.m */; settings = {COMPILER_FLAGS = "-DOS_OBJECT_USE_OBJC=0"; }; };
+		FFA3A8ED1B1890CE0FD649EAE7087FE0 /* SCSiriWaveformView.h in Headers */ = {isa = PBXBuildFile; fileRef = B1F6A0A6091401874B0B015242EF62A5 /* SCSiriWaveformView.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		B3709DFB8B1EDC94505F527A8EEBD07C /* PBXContainerItemProxy */ = {
+		AC03B003F16C7060A03884AD6E7F7161 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = A0B29DA75EA20F0DF616CBFBB5403AB3;
+			remoteGlobalIDString = 56BD652DE95B07EE8F0C43478D9B951D;
+			remoteInfo = SCSiriWaveformView;
+		};
+		C95208785465C1C7B6D31BDF4E0D3E2D /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EF5900821BDA757CD78EEE664A27A69F;
 			remoteInfo = LXReorderableCollectionViewFlowLayout;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1CCF07EB24A18D4195B0BF3895D1BF75 /* Pods-My Word Bank-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-My Word Bank-acknowledgements.plist"; sourceTree = "<group>"; };
-		2EDF214E0E365A6FAAD31FC1B05D448B /* libPods-My Word Bank.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-My Word Bank.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		318F34704F072066E3578A208922EA67 /* libLXReorderableCollectionViewFlowLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLXReorderableCollectionViewFlowLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		3927B5E532D098BADCB7EB454713159F /* LXReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LXReorderableCollectionViewFlowLayout.m; path = LXReorderableCollectionViewFlowLayout/LXReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
-		3C15028DF735ED3257D0D9CFD29B5655 /* LXReorderableCollectionViewFlowLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LXReorderableCollectionViewFlowLayout-dummy.m"; sourceTree = "<group>"; };
-		4549D85BD91876229E75FC56F494669C /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
-		6AE6E2280B50B0288EAF05722378E32F /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		967B977C1FCA99F350E9F3DCDAFBE7B7 /* Pods-My Word Bank-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-My Word Bank-dummy.m"; sourceTree = "<group>"; };
-		96BC67B4539F030752D210CBA661D5F9 /* LXReorderableCollectionViewFlowLayout-Private.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "LXReorderableCollectionViewFlowLayout-Private.xcconfig"; sourceTree = "<group>"; };
-		A6068A51B667CEE0E2A19A04EAD5D15A /* Pods-My Word Bank-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-My Word Bank-resources.sh"; sourceTree = "<group>"; };
-		A941FBD98B9DEA6CAB464AEF901DEFAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
-		B28D7EED80C24733856D00D23FA1A277 /* Pods-My Word Bank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-My Word Bank.debug.xcconfig"; sourceTree = "<group>"; };
+		03CD9CCC36B7F2720B818E88E5EFCB0A /* Pods-My Word Bank-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-My Word Bank-acknowledgements.markdown"; sourceTree = "<group>"; };
+		0B7E9F7467127C086E8286EDA1F4EC27 /* Pods-My Word Bank-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-My Word Bank-dummy.m"; sourceTree = "<group>"; };
+		0D19BA184226AA3D85BFD20C367029D5 /* SCSiriWaveformView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SCSiriWaveformView.m; path = SCSiriWaveformView/SCSiriWaveformView.m; sourceTree = "<group>"; };
+		1D6898DAE78285E70B94B75F1EBDA2FD /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		2B01D960D38494075FE21580FD33C475 /* LXReorderableCollectionViewFlowLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LXReorderableCollectionViewFlowLayout-prefix.pch"; sourceTree = "<group>"; };
+		3BD52429AA47B778A76AC17BF3E8DC8D /* libPods-My Word Bank.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-My Word Bank.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3CCF36A8BE3434C983695343C2A06524 /* Pods-My Word Bank-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-My Word Bank-resources.sh"; sourceTree = "<group>"; };
+		42BA743E0F5AD5FE5403993E24990E7F /* Pods-My Word Bank-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-My Word Bank-acknowledgements.plist"; sourceTree = "<group>"; };
+		5445C0ABA35BB5C752E444C01FAEB071 /* Pods-My Word Bank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-My Word Bank.release.xcconfig"; sourceTree = "<group>"; };
+		5DF0B8F7D6EFA3CE2E94902B49A0FC9F /* LXReorderableCollectionViewFlowLayout-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "LXReorderableCollectionViewFlowLayout-dummy.m"; sourceTree = "<group>"; };
+		63964C9814CE31862239C414FDD5FC1E /* LXReorderableCollectionViewFlowLayout.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = LXReorderableCollectionViewFlowLayout.m; path = LXReorderableCollectionViewFlowLayout/LXReorderableCollectionViewFlowLayout.m; sourceTree = "<group>"; };
+		7EBA303ACDF48BFC09C72A4A78353FEB /* LXReorderableCollectionViewFlowLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LXReorderableCollectionViewFlowLayout.xcconfig; sourceTree = "<group>"; };
+		86D73FD680BFA430446E630CEA9F302E /* libSCSiriWaveformView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSCSiriWaveformView.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		A6B30E6A98741A3B254D8CC348FCDB11 /* SCSiriWaveformView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SCSiriWaveformView.xcconfig; sourceTree = "<group>"; };
+		B1F6A0A6091401874B0B015242EF62A5 /* SCSiriWaveformView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SCSiriWaveformView.h; path = SCSiriWaveformView/SCSiriWaveformView.h; sourceTree = "<group>"; };
+		B50C8125765ED68172D4880B85622977 /* SCSiriWaveformView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SCSiriWaveformView-dummy.m"; sourceTree = "<group>"; };
 		BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		BC163D835837E0B598D8439870451FF8 /* LXReorderableCollectionViewFlowLayout-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "LXReorderableCollectionViewFlowLayout-prefix.pch"; sourceTree = "<group>"; };
-		C1FCED813F529BA57A02028DFF6CC4BB /* LXReorderableCollectionViewFlowLayout.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = LXReorderableCollectionViewFlowLayout.xcconfig; sourceTree = "<group>"; };
-		CCDDD54AB431532DDE6F2727E2717CA1 /* Pods-My Word Bank-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-My Word Bank-acknowledgements.markdown"; sourceTree = "<group>"; };
-		D07F73B97921D7C6737B52A929378811 /* Pods-My Word Bank.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-My Word Bank.release.xcconfig"; sourceTree = "<group>"; };
-		F88B889B3810B0F07F847A09F0DCB4E3 /* LXReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LXReorderableCollectionViewFlowLayout.h; path = LXReorderableCollectionViewFlowLayout/LXReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		BACBE34320BCB470AC07126A0EFF2600 /* LXReorderableCollectionViewFlowLayout.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = LXReorderableCollectionViewFlowLayout.h; path = LXReorderableCollectionViewFlowLayout/LXReorderableCollectionViewFlowLayout.h; sourceTree = "<group>"; };
+		BCCD356B16D511077C26940364F17A8C /* SCSiriWaveformView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SCSiriWaveformView-prefix.pch"; sourceTree = "<group>"; };
+		C3484B66C7F42695E5C7D336E95C11E6 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		C6E7C79B313EB93BC5FDDDACA5EFF102 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		D174840A15355321F765B896A5CF2A01 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/AVFoundation.framework; sourceTree = DEVELOPER_DIR; };
+		D42C8889FEE39D4C6689484DA43A4FC8 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS9.0.sdk/System/Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		DA2CCF514A59AE16796ED2087216EED9 /* Pods-My Word Bank-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-My Word Bank-frameworks.sh"; sourceTree = "<group>"; };
+		DD0ABABEC5938F5120AC9B11DD77D394 /* Pods-My Word Bank.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-My Word Bank.debug.xcconfig"; sourceTree = "<group>"; };
+		DE5FFE301889E14EDEAA79E4418CD037 /* libLXReorderableCollectionViewFlowLayout.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libLXReorderableCollectionViewFlowLayout.a; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9CF2BE494DFCF75D3E174D6AC9E08E8D /* Frameworks */ = {
+		D4B5534DAED05C19414B44097855DB89 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9A2618FE987EFEB452BD811BFA22F752 /* Foundation.framework in Frameworks */,
+				AAEAA4AC16B87CA70680C258AB8AF0F5 /* AVFoundation.framework in Frameworks */,
+				87EB396876A3915F5C13597D259A2560 /* CoreGraphics.framework in Frameworks */,
+				4E4D6F834E7A784EC76BD455ACF47574 /* Foundation.framework in Frameworks */,
+				C7FE91A336D03E14BCF46804BA6CEED2 /* QuartzCore.framework in Frameworks */,
+				980E6357609FD843BB7DA85030FDD146 /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C3129FFA3BC9E0DF48CEAE67BEF8FF23 /* Frameworks */ = {
+		E1D19C301C4CA46CD4C44FACAF604D8A /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				157B65CC5983BAA9FDAA0C414B007B6E /* CoreGraphics.framework in Frameworks */,
-				6722DE7300D831DC79135DAB26732247 /* Foundation.framework in Frameworks */,
-				BABF9B5ED44978E54EE8519A0F69769E /* UIKit.framework in Frameworks */,
+				72D8D256B6B3CAC0389A74A53820FB63 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FBFA54DEBC96ADAA80F3FB8DDFD7F9F0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				78AC30793DB71FDE9A717925F5C096CF /* CoreGraphics.framework in Frameworks */,
+				41609762B022C54EEEFC4D03852FFDDF /* Foundation.framework in Frameworks */,
+				B9D5CA9956F2A570864B41D878A203BA /* UIKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		09FF4F8C409B6CB508A380A7B0A1A2EC /* Pods-My Word Bank */ = {
+		0381AEA54CDFF4DBCE603C790CB9E0CA /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				CCDDD54AB431532DDE6F2727E2717CA1 /* Pods-My Word Bank-acknowledgements.markdown */,
-				1CCF07EB24A18D4195B0BF3895D1BF75 /* Pods-My Word Bank-acknowledgements.plist */,
-				967B977C1FCA99F350E9F3DCDAFBE7B7 /* Pods-My Word Bank-dummy.m */,
-				A6068A51B667CEE0E2A19A04EAD5D15A /* Pods-My Word Bank-resources.sh */,
-				B28D7EED80C24733856D00D23FA1A277 /* Pods-My Word Bank.debug.xcconfig */,
-				D07F73B97921D7C6737B52A929378811 /* Pods-My Word Bank.release.xcconfig */,
+				3B6AFC5614CF81E93BB84923D13001CE /* LXReorderableCollectionViewFlowLayout */,
+				D1D1C51D74706F1F686E79C79F65D1F1 /* SCSiriWaveformView */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		1A933AAEE47144E1BC5367C1CABBFC5E /* Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				7EBA303ACDF48BFC09C72A4A78353FEB /* LXReorderableCollectionViewFlowLayout.xcconfig */,
+				5DF0B8F7D6EFA3CE2E94902B49A0FC9F /* LXReorderableCollectionViewFlowLayout-dummy.m */,
+				2B01D960D38494075FE21580FD33C475 /* LXReorderableCollectionViewFlowLayout-prefix.pch */,
+			);
+			name = "Support Files";
+			path = "../Target Support Files/LXReorderableCollectionViewFlowLayout";
+			sourceTree = "<group>";
+		};
+		20B56609144CE204DFA8221F742B2D76 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				56DE5FB77DE3B2298E740E3A8837DA35 /* iOS */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		3B6AFC5614CF81E93BB84923D13001CE /* LXReorderableCollectionViewFlowLayout */ = {
+			isa = PBXGroup;
+			children = (
+				BACBE34320BCB470AC07126A0EFF2600 /* LXReorderableCollectionViewFlowLayout.h */,
+				63964C9814CE31862239C414FDD5FC1E /* LXReorderableCollectionViewFlowLayout.m */,
+				1A933AAEE47144E1BC5367C1CABBFC5E /* Support Files */,
+			);
+			path = LXReorderableCollectionViewFlowLayout;
+			sourceTree = "<group>";
+		};
+		3F798E1331621E06ACF032415ED33CA6 /* Pods-My Word Bank */ = {
+			isa = PBXGroup;
+			children = (
+				03CD9CCC36B7F2720B818E88E5EFCB0A /* Pods-My Word Bank-acknowledgements.markdown */,
+				42BA743E0F5AD5FE5403993E24990E7F /* Pods-My Word Bank-acknowledgements.plist */,
+				0B7E9F7467127C086E8286EDA1F4EC27 /* Pods-My Word Bank-dummy.m */,
+				DA2CCF514A59AE16796ED2087216EED9 /* Pods-My Word Bank-frameworks.sh */,
+				3CCF36A8BE3434C983695343C2A06524 /* Pods-My Word Bank-resources.sh */,
+				DD0ABABEC5938F5120AC9B11DD77D394 /* Pods-My Word Bank.debug.xcconfig */,
+				5445C0ABA35BB5C752E444C01FAEB071 /* Pods-My Word Bank.release.xcconfig */,
 			);
 			name = "Pods-My Word Bank";
 			path = "Target Support Files/Pods-My Word Bank";
 			sourceTree = "<group>";
 		};
-		122DA2E5084A4393C29BE363C764795C /* Frameworks */ = {
+		56DE5FB77DE3B2298E740E3A8837DA35 /* iOS */ = {
 			isa = PBXGroup;
 			children = (
-				39CF33B2E976FD3E12A7D9F562B97919 /* iOS */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		39CF33B2E976FD3E12A7D9F562B97919 /* iOS */ = {
-			isa = PBXGroup;
-			children = (
-				6AE6E2280B50B0288EAF05722378E32F /* CoreGraphics.framework */,
-				A941FBD98B9DEA6CAB464AEF901DEFAA /* Foundation.framework */,
-				4549D85BD91876229E75FC56F494669C /* UIKit.framework */,
+				D174840A15355321F765B896A5CF2A01 /* AVFoundation.framework */,
+				D42C8889FEE39D4C6689484DA43A4FC8 /* CoreGraphics.framework */,
+				C6E7C79B313EB93BC5FDDDACA5EFF102 /* Foundation.framework */,
+				C3484B66C7F42695E5C7D336E95C11E6 /* QuartzCore.framework */,
+				1D6898DAE78285E70B94B75F1EBDA2FD /* UIKit.framework */,
 			);
 			name = iOS;
-			sourceTree = "<group>";
-		};
-		458DDDB1EE2105BE40AF1A54298FE7D8 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				DD10CC747D614DBD3B730A268C1CB725 /* LXReorderableCollectionViewFlowLayout */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
 			isa = PBXGroup;
 			children = (
 				BA6428E9F66FD5A23C0A2E06ED26CD2F /* Podfile */,
-				122DA2E5084A4393C29BE363C764795C /* Frameworks */,
-				458DDDB1EE2105BE40AF1A54298FE7D8 /* Pods */,
-				CCA510CFBEA2D207524CDA0D73C3B561 /* Products */,
-				AFF66419A928DFB63CA689745EF494E0 /* Targets Support Files */,
+				20B56609144CE204DFA8221F742B2D76 /* Frameworks */,
+				0381AEA54CDFF4DBCE603C790CB9E0CA /* Pods */,
+				F4D41700571E6289BBB7A4654897C067 /* Products */,
+				EA4F73388684D43614E6F862396DC15A /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
 		};
-		9ACBAACB01E78880E81D17032A832D47 /* Support Files */ = {
+		BB184A74A6BDB87B63FA71694E4B3B72 /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C1FCED813F529BA57A02028DFF6CC4BB /* LXReorderableCollectionViewFlowLayout.xcconfig */,
-				96BC67B4539F030752D210CBA661D5F9 /* LXReorderableCollectionViewFlowLayout-Private.xcconfig */,
-				3C15028DF735ED3257D0D9CFD29B5655 /* LXReorderableCollectionViewFlowLayout-dummy.m */,
-				BC163D835837E0B598D8439870451FF8 /* LXReorderableCollectionViewFlowLayout-prefix.pch */,
+				A6B30E6A98741A3B254D8CC348FCDB11 /* SCSiriWaveformView.xcconfig */,
+				B50C8125765ED68172D4880B85622977 /* SCSiriWaveformView-dummy.m */,
+				BCCD356B16D511077C26940364F17A8C /* SCSiriWaveformView-prefix.pch */,
 			);
 			name = "Support Files";
-			path = "../Target Support Files/LXReorderableCollectionViewFlowLayout";
+			path = "../Target Support Files/SCSiriWaveformView";
 			sourceTree = "<group>";
 		};
-		AFF66419A928DFB63CA689745EF494E0 /* Targets Support Files */ = {
+		D1D1C51D74706F1F686E79C79F65D1F1 /* SCSiriWaveformView */ = {
 			isa = PBXGroup;
 			children = (
-				09FF4F8C409B6CB508A380A7B0A1A2EC /* Pods-My Word Bank */,
+				B1F6A0A6091401874B0B015242EF62A5 /* SCSiriWaveformView.h */,
+				0D19BA184226AA3D85BFD20C367029D5 /* SCSiriWaveformView.m */,
+				BB184A74A6BDB87B63FA71694E4B3B72 /* Support Files */,
+			);
+			path = SCSiriWaveformView;
+			sourceTree = "<group>";
+		};
+		EA4F73388684D43614E6F862396DC15A /* Targets Support Files */ = {
+			isa = PBXGroup;
+			children = (
+				3F798E1331621E06ACF032415ED33CA6 /* Pods-My Word Bank */,
 			);
 			name = "Targets Support Files";
 			sourceTree = "<group>";
 		};
-		CCA510CFBEA2D207524CDA0D73C3B561 /* Products */ = {
+		F4D41700571E6289BBB7A4654897C067 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				318F34704F072066E3578A208922EA67 /* libLXReorderableCollectionViewFlowLayout.a */,
-				2EDF214E0E365A6FAAD31FC1B05D448B /* libPods-My Word Bank.a */,
+				DE5FFE301889E14EDEAA79E4418CD037 /* libLXReorderableCollectionViewFlowLayout.a */,
+				3BD52429AA47B778A76AC17BF3E8DC8D /* libPods-My Word Bank.a */,
+				86D73FD680BFA430446E630CEA9F302E /* libSCSiriWaveformView.a */,
 			);
 			name = Products;
-			sourceTree = "<group>";
-		};
-		DD10CC747D614DBD3B730A268C1CB725 /* LXReorderableCollectionViewFlowLayout */ = {
-			isa = PBXGroup;
-			children = (
-				F88B889B3810B0F07F847A09F0DCB4E3 /* LXReorderableCollectionViewFlowLayout.h */,
-				3927B5E532D098BADCB7EB454713159F /* LXReorderableCollectionViewFlowLayout.m */,
-				9ACBAACB01E78880E81D17032A832D47 /* Support Files */,
-			);
-			path = LXReorderableCollectionViewFlowLayout;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		507F1D308E5F054B76B058DA351E0ACF /* Headers */ = {
+		80715B241CD050A67804F92D070F76E1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				048700A229F6F3D4DB313762D12EF7CC /* LXReorderableCollectionViewFlowLayout.h in Headers */,
+				FFA3A8ED1B1890CE0FD649EAE7087FE0 /* SCSiriWaveformView.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A792A9920EB606F02BD438096A2AF348 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				C896329B46BF7F6F4AB002082531BDFD /* LXReorderableCollectionViewFlowLayout.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		A0B29DA75EA20F0DF616CBFBB5403AB3 /* LXReorderableCollectionViewFlowLayout */ = {
+		56BD652DE95B07EE8F0C43478D9B951D /* SCSiriWaveformView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 5AA1356D2EE80C180C94F8BD13E9AE48 /* Build configuration list for PBXNativeTarget "LXReorderableCollectionViewFlowLayout" */;
+			buildConfigurationList = EAF8329E99922C456A354EEC56BEE15B /* Build configuration list for PBXNativeTarget "SCSiriWaveformView" */;
 			buildPhases = (
-				2FF7B1415C61279E2FD244C117C654EB /* Sources */,
-				C3129FFA3BC9E0DF48CEAE67BEF8FF23 /* Frameworks */,
-				507F1D308E5F054B76B058DA351E0ACF /* Headers */,
+				BE5D52A7C95790284530032F93AD8713 /* Sources */,
+				D4B5534DAED05C19414B44097855DB89 /* Frameworks */,
+				80715B241CD050A67804F92D070F76E1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SCSiriWaveformView;
+			productName = SCSiriWaveformView;
+			productReference = 86D73FD680BFA430446E630CEA9F302E /* libSCSiriWaveformView.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		6494370A5A1B45F3177A06B8C5AC8E9E /* Pods-My Word Bank */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 95EAD66A1BD5A7B2785883A45BFD5132 /* Build configuration list for PBXNativeTarget "Pods-My Word Bank" */;
+			buildPhases = (
+				1CBCCE5BDD7064356AEBE688F71504C8 /* Sources */,
+				E1D19C301C4CA46CD4C44FACAF604D8A /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7F432C51E6D79622D5E1DABCA8E400B7 /* PBXTargetDependency */,
+				CF8A4A9581FC2D5C723BD77742BE3BAC /* PBXTargetDependency */,
+			);
+			name = "Pods-My Word Bank";
+			productName = "Pods-My Word Bank";
+			productReference = 3BD52429AA47B778A76AC17BF3E8DC8D /* libPods-My Word Bank.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		EF5900821BDA757CD78EEE664A27A69F /* LXReorderableCollectionViewFlowLayout */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 04961175DD6ABDDAAB372DECCADF8531 /* Build configuration list for PBXNativeTarget "LXReorderableCollectionViewFlowLayout" */;
+			buildPhases = (
+				E4B3D39A38641209B78F52704F69C31D /* Sources */,
+				FBFA54DEBC96ADAA80F3FB8DDFD7F9F0 /* Frameworks */,
+				A792A9920EB606F02BD438096A2AF348 /* Headers */,
 			);
 			buildRules = (
 			);
@@ -188,24 +291,7 @@
 			);
 			name = LXReorderableCollectionViewFlowLayout;
 			productName = LXReorderableCollectionViewFlowLayout;
-			productReference = 318F34704F072066E3578A208922EA67 /* libLXReorderableCollectionViewFlowLayout.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-		BABE4EA72CD8690C948329506C2C21D3 /* Pods-My Word Bank */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 205B3649F70D49A003645A8A6A1BD02B /* Build configuration list for PBXNativeTarget "Pods-My Word Bank" */;
-			buildPhases = (
-				C20CB16983BC1537877EFEC3C34F75AE /* Sources */,
-				9CF2BE494DFCF75D3E174D6AC9E08E8D /* Frameworks */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				102D8A8EE404A427E644CA65087A831C /* PBXTargetDependency */,
-			);
-			name = "Pods-My Word Bank";
-			productName = "Pods-My Word Bank";
-			productReference = 2EDF214E0E365A6FAAD31FC1B05D448B /* libPods-My Word Bank.a */;
+			productReference = DE5FFE301889E14EDEAA79E4418CD037 /* libLXReorderableCollectionViewFlowLayout.a */;
 			productType = "com.apple.product-type.library.static";
 		};
 /* End PBXNativeTarget section */
@@ -225,81 +311,65 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = CCA510CFBEA2D207524CDA0D73C3B561 /* Products */;
+			productRefGroup = F4D41700571E6289BBB7A4654897C067 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				A0B29DA75EA20F0DF616CBFBB5403AB3 /* LXReorderableCollectionViewFlowLayout */,
-				BABE4EA72CD8690C948329506C2C21D3 /* Pods-My Word Bank */,
+				EF5900821BDA757CD78EEE664A27A69F /* LXReorderableCollectionViewFlowLayout */,
+				6494370A5A1B45F3177A06B8C5AC8E9E /* Pods-My Word Bank */,
+				56BD652DE95B07EE8F0C43478D9B951D /* SCSiriWaveformView */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		2FF7B1415C61279E2FD244C117C654EB /* Sources */ = {
+		1CBCCE5BDD7064356AEBE688F71504C8 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0462F19386E79EE3FE191740D07527E2 /* LXReorderableCollectionViewFlowLayout-dummy.m in Sources */,
-				ADF3998AC8F6E8B8BEBE048D29918D6D /* LXReorderableCollectionViewFlowLayout.m in Sources */,
+				BDD9A5C03FC7DB1F359F4E00BA4DA20C /* Pods-My Word Bank-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		C20CB16983BC1537877EFEC3C34F75AE /* Sources */ = {
+		BE5D52A7C95790284530032F93AD8713 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FB548F72EB33EFF9385404CDCE71911A /* Pods-My Word Bank-dummy.m in Sources */,
+				423F2592C972314502D290098031044D /* SCSiriWaveformView-dummy.m in Sources */,
+				A1AE9E80A072A21DB567EB3F03F94360 /* SCSiriWaveformView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		E4B3D39A38641209B78F52704F69C31D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				61329CBD945D06A72CFD85C342D44141 /* LXReorderableCollectionViewFlowLayout-dummy.m in Sources */,
+				F9B613F9F55674307B766BFBFD729B5A /* LXReorderableCollectionViewFlowLayout.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		102D8A8EE404A427E644CA65087A831C /* PBXTargetDependency */ = {
+		7F432C51E6D79622D5E1DABCA8E400B7 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = LXReorderableCollectionViewFlowLayout;
-			target = A0B29DA75EA20F0DF616CBFBB5403AB3 /* LXReorderableCollectionViewFlowLayout */;
-			targetProxy = B3709DFB8B1EDC94505F527A8EEBD07C /* PBXContainerItemProxy */;
+			target = EF5900821BDA757CD78EEE664A27A69F /* LXReorderableCollectionViewFlowLayout */;
+			targetProxy = C95208785465C1C7B6D31BDF4E0D3E2D /* PBXContainerItemProxy */;
+		};
+		CF8A4A9581FC2D5C723BD77742BE3BAC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = SCSiriWaveformView;
+			target = 56BD652DE95B07EE8F0C43478D9B951D /* SCSiriWaveformView */;
+			targetProxy = AC03B003F16C7060A03884AD6E7F7161 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		1D388287E1E29770A4B96593BCCDA377 /* Debug */ = {
+		1025250D6A9880190A89B275956873F9 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B28D7EED80C24733856D00D23FA1A277 /* Pods-My Word Bank.debug.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		6DC9E309A0F54E30FE79BE6926505DED /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96BC67B4539F030752D210CBA661D5F9 /* LXReorderableCollectionViewFlowLayout-Private.xcconfig */;
-			buildSettings = {
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				GCC_PREFIX_HEADER = "Target Support Files/LXReorderableCollectionViewFlowLayout/LXReorderableCollectionViewFlowLayout-prefix.pch";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		A50BB96D0028868298E2F1620DD56A53 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 96BC67B4539F030752D210CBA661D5F9 /* LXReorderableCollectionViewFlowLayout-Private.xcconfig */;
+			baseConfigurationReference = 7EBA303ACDF48BFC09C72A4A78353FEB /* LXReorderableCollectionViewFlowLayout.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_PREFIX_HEADER = "Target Support Files/LXReorderableCollectionViewFlowLayout/LXReorderableCollectionViewFlowLayout-prefix.pch";
@@ -307,7 +377,27 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				OTHER_LDFLAGS = "";
 				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		33B55EF903FE6127D2A34A45F420B67C /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6B30E6A98741A3B254D8CC348FCDB11 /* SCSiriWaveformView.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SCSiriWaveformView/SCSiriWaveformView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 			};
@@ -352,9 +442,43 @@
 			};
 			name = Debug;
 		};
-		BED969FEC1221EFC4604C1839AC9D8C5 /* Release */ = {
+		C2225235DD74781CA1AACBB1D501905C /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = D07F73B97921D7C6737B52A929378811 /* Pods-My Word Bank.release.xcconfig */;
+			baseConfigurationReference = 7EBA303ACDF48BFC09C72A4A78353FEB /* LXReorderableCollectionViewFlowLayout.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/LXReorderableCollectionViewFlowLayout/LXReorderableCollectionViewFlowLayout-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E1433FFA4E89C0AB096A680C1E986B89 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DD0ABABEC5938F5120AC9B11DD77D394 /* Pods-My Word Bank.debug.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		E3B711D6E48BA835D2A599F0B600CE86 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5445C0ABA35BB5C752E444C01FAEB071 /* Pods-My Word Bank.release.xcconfig */;
 			buildSettings = {
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -367,6 +491,24 @@
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
+		};
+		F00C0164D4563CF31BC26F0D4A26F9D2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = A6B30E6A98741A3B254D8CC348FCDB11 /* SCSiriWaveformView.xcconfig */;
+			buildSettings = {
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_PREFIX_HEADER = "Target Support Files/SCSiriWaveformView/SCSiriWaveformView-prefix.pch";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
 		};
 		FB45FFD90572718D82AB9092B750F0CA /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -405,11 +547,11 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		205B3649F70D49A003645A8A6A1BD02B /* Build configuration list for PBXNativeTarget "Pods-My Word Bank" */ = {
+		04961175DD6ABDDAAB372DECCADF8531 /* Build configuration list for PBXNativeTarget "LXReorderableCollectionViewFlowLayout" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				1D388287E1E29770A4B96593BCCDA377 /* Debug */,
-				BED969FEC1221EFC4604C1839AC9D8C5 /* Release */,
+				C2225235DD74781CA1AACBB1D501905C /* Debug */,
+				1025250D6A9880190A89B275956873F9 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
@@ -423,11 +565,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		5AA1356D2EE80C180C94F8BD13E9AE48 /* Build configuration list for PBXNativeTarget "LXReorderableCollectionViewFlowLayout" */ = {
+		95EAD66A1BD5A7B2785883A45BFD5132 /* Build configuration list for PBXNativeTarget "Pods-My Word Bank" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				6DC9E309A0F54E30FE79BE6926505DED /* Debug */,
-				A50BB96D0028868298E2F1620DD56A53 /* Release */,
+				E1433FFA4E89C0AB096A680C1E986B89 /* Debug */,
+				E3B711D6E48BA835D2A599F0B600CE86 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EAF8329E99922C456A354EEC56BEE15B /* Build configuration list for PBXNativeTarget "SCSiriWaveformView" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				F00C0164D4563CF31BC26F0D4A26F9D2 /* Debug */,
+				33B55EF903FE6127D2A34A45F420B67C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

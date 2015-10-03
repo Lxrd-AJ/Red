@@ -57,8 +57,15 @@
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <view key="tableFooterView" contentMode="scaleToFill" id="swm-f1-qzq">
-                            <rect key="frame" x="0.0" y="437" width="320" height="50"/>
+                            <rect key="frame" x="0.0" y="507" width="320" height="50"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="q7c-pz-Nol">
+                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                    <animations/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </view>
+                            </subviews>
                             <animations/>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         </view>
@@ -266,6 +273,55 @@
                                         </tableViewCellContentView>
                                         <animations/>
                                     </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="AddCell" rowHeight="70" id="yoT-yM-LNS">
+                                        <rect key="frame" x="0.0" y="437" width="320" height="70"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="yoT-yM-LNS" id="JLu-Gk-wBy">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="70"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="k20-gS-ltt" customClass="SCSiriWaveformView">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                                    <animations/>
+                                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                    <userDefinedRuntimeAttributes>
+                                                        <userDefinedRuntimeAttribute type="color" keyPath="waveColor">
+                                                            <color key="value" red="0.97647058819999999" green="0.41176470590000003" blue="0.2470588235" alpha="1" colorSpace="calibratedRGB"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="primaryWaveLineWidth">
+                                                            <real key="value" value="1"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="secondaryWaveLineWidth">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="idleAmplitude">
+                                                            <real key="value" value="0.01"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="frequency">
+                                                            <real key="value" value="0.5"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="amplitude">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="density">
+                                                            <real key="value" value="2"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                        <userDefinedRuntimeAttribute type="number" keyPath="phaseShift">
+                                                            <real key="value" value="-0.14999999999999999"/>
+                                                        </userDefinedRuntimeAttribute>
+                                                    </userDefinedRuntimeAttributes>
+                                                </view>
+                                            </subviews>
+                                            <animations/>
+                                            <constraints>
+                                                <constraint firstItem="k20-gS-ltt" firstAttribute="top" secondItem="JLu-Gk-wBy" secondAttribute="topMargin" constant="-8" id="2ko-Aj-J3M"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="k20-gS-ltt" secondAttribute="trailing" constant="-8" id="36w-pG-UYX"/>
+                                                <constraint firstItem="k20-gS-ltt" firstAttribute="leading" secondItem="JLu-Gk-wBy" secondAttribute="leadingMargin" constant="-8" id="8fj-Ce-uZQ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="k20-gS-ltt" secondAttribute="bottom" constant="7" id="Hj7-83-pKv"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <animations/>
+                                    </tableViewCell>
                                 </cells>
                             </tableViewSection>
                         </sections>
@@ -295,6 +351,7 @@
                         <outlet property="lastCell" destination="ENT-tS-2V9" id="YAb-yJ-qdT"/>
                         <outlet property="playButton" destination="Har-ZU-b9Q" id="DiO-JU-9bg"/>
                         <outlet property="recordButton" destination="q1j-bG-Xap" id="oPG-Tt-fdH"/>
+                        <outlet property="recordingWave" destination="k20-gS-ltt" id="tET-se-s9Z"/>
                         <outlet property="titleField" destination="eiu-LS-O4J" id="AoH-tZ-9gu"/>
                     </connections>
                 </tableViewController>

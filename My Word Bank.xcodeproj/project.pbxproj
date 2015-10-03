@@ -72,6 +72,7 @@
 		21D6286C1B4F5F2C00E6E4DB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		21D6286E1B4F5F9200E6E4DB /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		21D628731B4F62AA00E6E4DB /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
+		21F9116A1BC00C2000EA1FB4 /* My Word Bank-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "My Word Bank-Bridging-Header.h"; sourceTree = "<group>"; };
 		21FC45F01B64130E0029AEA1 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		21FC45F21B6414AA0029AEA1 /* WordView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = WordView.xib; sourceTree = "<group>"; };
 		21FC45F51B6414F30029AEA1 /* WordView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordView.swift; sourceTree = "<group>"; };
@@ -151,6 +152,7 @@
 				21D628401B4F5A4A00E6E4DB /* Red.xcdatamodeld */,
 				21FC45F21B6414AA0029AEA1 /* WordView.xib */,
 				211EEB2B1B6597BD00CC90E6 /* FolderView.xib */,
+				21F9116A1BC00C2000EA1FB4 /* My Word Bank-Bridging-Header.h */,
 			);
 			name = "My Word Bank";
 			path = Red;
@@ -296,7 +298,7 @@
 		21D6282E1B4F5A4A00E6E4DB /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0700;
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = "The Leaf";
 				TargetAttributes = {
@@ -562,7 +564,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TheLeaf.MwB;
 				PRODUCT_NAME = "My Word Bank";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Red/My Word Bank-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -580,7 +582,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.TheLeaf.MwB;
 				PRODUCT_NAME = "My Word Bank";
-				SWIFT_OBJC_BRIDGING_HEADER = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Red/My Word Bank-Bridging-Header.h";
 			};
 			name = Release;
 		};
