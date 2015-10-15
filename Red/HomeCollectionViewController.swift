@@ -191,7 +191,11 @@ class HomeCollectionViewController: UICollectionViewController {
 }
 
 extension HomeCollectionViewController: NSFetchedResultsControllerDelegate {
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+//    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+//        do{ try managedObjCtx.save() }catch{ print("\(error)") }
+//    }
+    
+    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         do{ try managedObjCtx.save() }catch{ print("\(error)") }
     }
 }
@@ -214,7 +218,7 @@ extension HomeCollectionViewController: LXReorderableCollectionViewDataSource {
     func collectionView(collectionView: UICollectionView!, itemAtIndexPath fromIndexPath: NSIndexPath!, didMoveToIndexPath toIndexPath: NSIndexPath!) {
         //Update the display order
         var i = 0
-        self.words.map({ $0.setValue(i++, forKey:"displayOrder") })
+        _ = self.words.map({ $0.setValue(i++, forKey:"displayOrder") })
     }
 
 }

@@ -131,19 +131,23 @@ extension HomeTableViewController: NSFetchedResultsControllerDelegate {
         tableView.beginUpdates()
     }
     
-    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-        switch type {
-        case .Insert:
-            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Fade )
-        //case .Delete:
-            //tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade )
-        case .Update:
-            tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade )
-        default:
-            tableView.reloadData()
-        }
-        words = controller.fetchedObjects as! [Word]
-    }
+//    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+//        switch type {
+//        case .Insert:
+//            tableView.insertRowsAtIndexPaths([newIndexPath!], withRowAnimation: UITableViewRowAnimation.Fade )
+//        //case .Delete:
+//            //tableView.deleteRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade )
+//        case .Update:
+//            tableView.reloadRowsAtIndexPaths([indexPath!], withRowAnimation: .Fade )
+//        default:
+//            tableView.reloadData()
+//        }
+//        words = controller.fetchedObjects as! [Word]
+//    }
+//    
+//    func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
+//        <#code#>
+//    }
     
     func controllerDidChangeContent(controller: NSFetchedResultsController) {
         tableView.endUpdates()
