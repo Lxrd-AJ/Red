@@ -14,10 +14,10 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'ADBFEA60EE01AD624801F240'
-               BlueprintName = 'LXReorderableCollectionViewFlowLayout'
+               BlueprintIdentifier = '755D5321109CDDB1F7EE46AC'
+               BlueprintName = 'SCSiriWaveformView'
                ReferencedContainer = 'container:Pods.xcodeproj'
-               BuildableName = 'libLXReorderableCollectionViewFlowLayout.a'>
+               BuildableName = 'libSCSiriWaveformView.a'>
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>

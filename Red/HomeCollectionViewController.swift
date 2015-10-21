@@ -136,7 +136,7 @@ class HomeCollectionViewController: UICollectionViewController {
         if segue.identifier == "addWord" {
             let navController = segue.destinationViewController as! UINavigationController
             let addVC = navController.viewControllers[0] as! AddViewController
-            addVC.homeController = self 
+            //addVC.homeController = self
         }else if segue.identifier == "showWord" {
             let wordVC = segue.destinationViewController as! WordViewController
             let indexPath = collectionView?.indexPathsForSelectedItems()![0]

@@ -14,15 +14,25 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SCSiriWaveformView.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>1DB5F4640941AA9FC5F97159273BE29E</key>
+		<key>59DA082A70EE74634727FB29A8DA5817</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>96EE09E01EA15D2184EB661A3A4B6140</key>
+		<key>C60BE013BA092A1E406C26EA51C0D553</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>EF5900821BDA757CD78EEE664A27A69F</key>
 		<dict>
 			<key>primary</key>
 			<true/>

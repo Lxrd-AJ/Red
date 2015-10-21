@@ -49,7 +49,7 @@ class WordViewController: UIViewController {
             addVC.loadView()
             addVC.lastCell.hidden = false
             addVC.word = self.word
-            addVC.homeController = homeVC
+            //addVC.homeController = homeVC
         }
     }
     

@@ -13,7 +13,9 @@ import CoreData
 class AddViewController: UITableViewController {
     
     let alert = UIAlertController( title: "Error", message: "Something Went Wrong", preferredStyle: .Alert )
-    let cancelAction = UIAlertAction( title: "Ok", style: .Cancel , handler: nil )
+    let cancelAction = UIAlertAction( title: "Ok 😞", style: .Cancel , handler: nil )
+    let saveContext = (UIApplication.sharedApplication().delegate as! AppDelegate).saveContext
+    
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleField: UITextField!
     @IBOutlet weak var descriptionField: UITextView!
@@ -21,20 +23,49 @@ class AddViewController: UITableViewController {
     @IBOutlet weak var recordButton: UIButton!
     @IBOutlet weak var playButton: UIButton!
     @IBOutlet weak var lastCell: UITableViewCell!
+    @IBOutlet weak var recordingWave:SCSiriWaveformView!
+    
     var audioURL: NSURL!
     var audioSettings: [String:AnyObject]!
     var audioRecorder: AVAudioRecorder!
     var audioPlayer: AVAudioPlayer!
     var word: Word!
-    var homeController: HomeCollectionViewController!
-
+    //var folder: Folder?
+    var didPickImage: Bool = false
+    var displayLink:CADisplayLink = CADisplayLink()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.tableFooterView = UIView()
         imageView.layer.cornerRadius = imageView.frame.size.width / 2
-        alert.addAction( cancelAction )
         self.playButton.hidden = true
         lastCell.hidden = true
+        alert.addAction( cancelAction )
+        
+        //Add the animation to the Run loop
+        recordingWave.hidden = true;
+        recordingWave.numberOfWaves = 5;
+        recordingWave.phaseShift = -0.15;
+        
+        displayLink = CADisplayLink(target: self, selector: "updateMeters")
+        displayLink.paused = true
+        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+        
+        recordingWave.updateWithLevel(0.0)
+    }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        //Try and Populate the View
+        if word != nil {
+            if word.title != nil { self.titleField.text = word.title }
+            if word.picture != nil { self.imageView.image = UIImage( data: word.picture! ) }
+            if word.wordDescription != nil { self.descriptionField.text = word.wordDescription }
+            if word.audio != nil {
+                self.audioLabel.text = word.title
+            }else{ playButton.hidden = true }
+        }
         
         //Audio Permissions
         do{
@@ -52,25 +83,11 @@ class AddViewController: UITableViewController {
                     self!.presentViewController(self!.alert, animated: true, completion: nil)
                 }
             }
-
+            
         }catch{
             alert.message = "\((error as NSError).localizedDescription)"
             presentViewController(alert, animated: true, completion: nil)
         }
-    }
-
-    override func viewWillAppear(animated: Bool) {
-        super.viewWillAppear(animated)
-        //Try and Populate the View
-        if word != nil {
-            if word.title != nil { self.titleField.text = word.title }
-            if word.picture != nil { self.imageView.image = UIImage( data: word.picture! ) }
-            if word.wordDescription != nil { self.descriptionField.text = word.wordDescription }
-            if word.audio != nil {
-                self.audioLabel.text = word.title
-            }else{ playButton.hidden = true }
-        }
-        
     }
     
     override func didReceiveMemoryWarning() {
@@ -80,12 +97,27 @@ class AddViewController: UITableViewController {
     
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if indexPath.row == 0 { //Image Selected
-            if UIImagePickerController.isSourceTypeAvailable( .PhotoLibrary ) {
+            let selectController = UIAlertController(title: "Choose Source 📷", message: "", preferredStyle: .ActionSheet )
+            if UIImagePickerController.isSourceTypeAvailable( .PhotoLibrary ) || UIImagePickerController.isSourceTypeAvailable( .Camera ){
                 let imagePicker = UIImagePickerController()
                 imagePicker.allowsEditing = true
-                imagePicker.sourceType = .PhotoLibrary //.Camera
                 imagePicker.delegate = self
-                self.presentViewController( imagePicker, animated: true, completion: nil )
+                if UIImagePickerController.isSourceTypeAvailable( .Camera ){
+                    let libAction = UIAlertAction(title: "Photos Library", style: .Default , handler: { _ in imagePicker.sourceType = .PhotoLibrary
+                        self.presentViewController( imagePicker, animated: true, completion: nil )
+                    })
+                    let cameraAction = UIAlertAction(title: "Camera", style: .Default , handler: { _ in imagePicker.sourceType = .Camera
+                        self.presentViewController( imagePicker, animated: true, completion: nil )
+                    })
+                    let cancelAction = UIAlertAction(title: "Cancel", style: .Cancel , handler: nil )
+                    selectController.addAction(libAction)
+                    selectController.addAction(cameraAction)
+                    selectController.addAction(cancelAction)
+                    presentViewController(selectController, animated: true, completion: nil)
+                }else{
+                    imagePicker.sourceType = .PhotoLibrary
+                    self.presentViewController( imagePicker, animated: true, completion: nil )
+                }
             }else{
                 //Error: Cannot access image Lib
                 alert.message = "Cannot Access the image Library"
@@ -98,24 +130,31 @@ class AddViewController: UITableViewController {
     @IBAction func save(){
         //Check for the important ones
         if( titleField.text == "" ){
+            alert.title = "Stop ✋🏽"
             alert.message = "You Have to enter at least a title before saving a Word"
             presentViewController(alert, animated: true, completion: nil)
         }else{
             let managedObjContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
-            if word == nil { //If its a new word
+            if self.word == nil { //If its a new word
                 self.word = NSEntityDescription.insertNewObjectForEntityForName("Word", inManagedObjectContext: managedObjContext) as! Word
+//                self.word.x = Float( self.view.center.x )
+//                self.word.y = Float( self.view.center.y )
+                if didPickImage {
+                    self.word.picture = UIImagePNGRepresentation( self.imageView.image! )
+                }
+                //folder!.addWords([self.word], saveCtx: saveContext)
             }
             self.word.title = titleField.text
             self.word.wordDescription = descriptionField.text
-            self.word.picture = UIImagePNGRepresentation( self.imageView.image! )
+            if didPickImage && self.word != nil { self.word.picture = UIImagePNGRepresentation( self.imageView.image! ) }
             if self.audioURL != nil {
                 self.word.audio = NSData( contentsOfURL: self.audioURL )
             }
             //Close up
             defer{
-                homeController.saveWord( self.word, context: managedObjContext )
+                saveContext()
                 if self.navigationController != nil {
-                    self.navigationController?.dismissViewControllerAnimated(true , completion: nil)
+                self.navigationController?.dismissViewControllerAnimated(true , completion: nil)
                 }else{ self.dismissViewControllerAnimated(true, completion: nil) }
             }
         }
@@ -125,7 +164,7 @@ class AddViewController: UITableViewController {
         if word != nil {
             let managedObjContext = (UIApplication.sharedApplication().delegate as! AppDelegate).managedObjectContext
             managedObjContext.deleteObject(word)
-            homeController.saveWord(nil , context: managedObjContext)
+            saveContext()
             self.performSegueWithIdentifier("unwindToHome", sender: self)
         }
     }
@@ -158,10 +197,9 @@ class AddViewController: UITableViewController {
                         self.recordButton.setTitle("Stop", forState: .Normal )
                     }catch{
                         alert.message = "Failed to Record"
-                        //alert.addAction( cancelAction )
                         self.presentViewController(alert, animated: true, completion: nil)
                     }
-
+                    
                 }else{ alert.message = "Enter a Title First"; presentViewController(alert, animated: true, completion: nil) }
             }
             catch{
@@ -184,7 +222,9 @@ class AddViewController: UITableViewController {
                     let fileData = try NSData( contentsOfURL: self.audioURL, options: .MappedRead )
                     self.audioPlayer = try AVAudioPlayer( data: fileData )
                     self.audioPlayer.delegate = self
+                    self.audioPlayer.meteringEnabled = true
                     self.audioPlayer.prepareToPlay()
+                    displayLink.paused = false
                     if self.audioPlayer.play() {
                         self.playButton.setTitle("Stop", forState: .Normal )
                     }else{
@@ -199,22 +239,48 @@ class AddViewController: UITableViewController {
         }
     }
     
+    //Start Recording the audio
     func startRecording( url:NSURL, settings:[String:AnyObject] ) throws {
         do{
             try self.audioRecorder = AVAudioRecorder(URL: url, settings: settings)
             audioRecorder.delegate = self
+            audioRecorder.meteringEnabled = true
+            //Let the CADisplayLink start sending notifications
+            recordingWave.hidden = false
+            displayLink.paused = false
             //Prepare the recorder and start recording
             if audioRecorder.prepareToRecord() && audioRecorder.record() {
                 print("Started Recording ......")
+                
+                //Show the recording animation
+                self.recordingWave.updateWithLevel(0.5)
             }else{ throw NSError( domain: "com.TheLeaf.Red", code: 0, userInfo: nil ) }
-        }catch{ throw error }
+        }catch{
+            print( error )
+            throw error
+        }
     }
     
     func stopRecording(){
         if self.audioRecorder.recording {
             self.audioRecorder.stop()
+            self.recordingWave.updateWithLevel(0.0)
+            displayLink.paused = true
             print("Stopped Recording")
         }else{ print("Not Recording") }
+    }
+    
+    func updateMeters(){
+        var normalizedValue:CGFloat = 0
+        if self.audioRecorder.recording {
+            audioRecorder.updateMeters()
+            normalizedValue = normalizedPowerLevelFromDecibels( CGFloat(self.audioRecorder.averagePowerForChannel(0)) )
+        }else if self.audioPlayer.playing {
+            audioPlayer.updateMeters()
+            normalizedValue = normalizedPowerLevelFromDecibels( CGFloat(self.audioPlayer.averagePowerForChannel(0)) )
+        }
+        self.recordingWave.updateWithLevel(normalizedValue)
+        print("Normalized value \(normalizedValue)")
     }
     
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
@@ -228,7 +294,7 @@ class AddViewController: UITableViewController {
             }
         }
     }
-
+    
 }
 
 extension AddViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -236,6 +302,7 @@ extension AddViewController: UIImagePickerControllerDelegate, UINavigationContro
         imageView.image = image
         imageView.contentMode = .ScaleAspectFill
         imageView.clipsToBounds = true
+        didPickImage = true
         dismissViewControllerAnimated( true, completion: nil )
     }
 }
@@ -244,6 +311,7 @@ extension AddViewController: AVAudioRecorderDelegate, AVAudioPlayerDelegate {
     func audioPlayerDidFinishPlaying(player: AVAudioPlayer, successfully flag: Bool) {
         if flag {
             self.playButton.setTitle("Play", forState: .Normal )
+            displayLink.paused = true
         }else{ print("Audio Player did not finish Properly") }
     }
 }

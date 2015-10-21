@@ -3,3 +3,4 @@
 //
 
 #import <LXReorderableCollectionViewFlowLayout.h>
+#import <SCSiriWaveformView.h>
