@@ -1,16 +1,16 @@
 # Uncomment this line to define a global platform for your project
 # platform :ios, '8.0'
 
-target 'Red' do
+target 'Capchit' do
 	pod 'LXReorderableCollectionViewFlowLayout', '~> 0.1'
     pod 'SCSiriWaveformView'
 end
 
-target 'RedTests' do
+#target 'RedTests' do
 
-end
+#end
 
-target 'RedUITests' do
+#target 'RedUITests' do
 
-end
+#end
 

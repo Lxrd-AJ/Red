@@ -9,7 +9,7 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>Pods-Red.xcscheme</key>
+		<key>Pods-Capchit.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
@@ -22,12 +22,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>59DA082A70EE74634727FB29A8DA5817</key>
+		<key>356B4C6D67A1AB7F17553C5E8155BF1D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>C60BE013BA092A1E406C26EA51C0D553</key>
+		<key>B1D8EB5AA03A8FA6DF30128AD1699DED</key>
 		<dict>
 			<key>primary</key>
 			<true/>

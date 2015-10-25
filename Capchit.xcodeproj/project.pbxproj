@@ -7,10 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		01C4D0338F653D5DF2367AC4 /* libPods-Capchit.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B9A3697B90255CD4E9686E2F /* libPods-Capchit.a */; };
 		211CD7401B5D3C4700639689 /* HomeCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */; };
 		211CD7421B5D44CD00639689 /* WordCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */; };
 		212DAD911B5A3504007E80F2 /* WordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 212DAD901B5A3504007E80F2 /* WordViewController.swift */; };
-		219D09F91BD3B348007CD6CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D09F81BD3B348007CD6CE /* Extensions.swift */; settings = {ASSET_TAGS = (); }; };
+		219D09F91BD3B348007CD6CE /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 219D09F81BD3B348007CD6CE /* Extensions.swift */; };
 		21D6283A1B4F5A4A00E6E4DB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D628391B4F5A4A00E6E4DB /* AppDelegate.swift */; };
 		21D6283F1B4F5A4A00E6E4DB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21D6283D1B4F5A4A00E6E4DB /* Main.storyboard */; };
 		21D628421B4F5A4A00E6E4DB /* Red.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 21D628401B4F5A4A00E6E4DB /* Red.xcdatamodeld */; };
@@ -22,7 +23,6 @@
 		21D6286D1B4F5F2C00E6E4DB /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6286C1B4F5F2C00E6E4DB /* SettingsViewController.swift */; };
 		21D6286F1B4F5F9200E6E4DB /* AddViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D6286E1B4F5F9200E6E4DB /* AddViewController.swift */; };
 		21D628741B4F62AA00E6E4DB /* Word.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21D628731B4F62AA00E6E4DB /* Word.swift */; };
-		EABFDF7C2406C8AA6E72D581 /* libPods-Red.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 8E0C5A6F0BBE6F14417BD9FC /* libPods-Red.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -43,6 +43,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		00B91DDE5AB91F010F4A73C3 /* Pods-Capchit.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capchit.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Capchit/Pods-Capchit.debug.xcconfig"; sourceTree = "<group>"; };
 		211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewController.swift; sourceTree = "<group>"; };
 		211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordCollectionViewCell.swift; sourceTree = "<group>"; };
 		212956831B5EDF810089554A /* Red-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Red-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -65,9 +66,8 @@
 		21D6286C1B4F5F2C00E6E4DB /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		21D6286E1B4F5F9200E6E4DB /* AddViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddViewController.swift; sourceTree = "<group>"; };
 		21D628731B4F62AA00E6E4DB /* Word.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Word.swift; sourceTree = "<group>"; };
-		2ED4202CDBD896B2892813CC /* Pods-Red.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Red.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Red/Pods-Red.debug.xcconfig"; sourceTree = "<group>"; };
-		8E0C5A6F0BBE6F14417BD9FC /* libPods-Red.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Red.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B626DFA29F3CF2382A565349 /* Pods-Red.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Red.release.xcconfig"; path = "Pods/Target Support Files/Pods-Red/Pods-Red.release.xcconfig"; sourceTree = "<group>"; };
+		4B10BF4CFC2DF38DF30726EB /* Pods-Capchit.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Capchit.release.xcconfig"; path = "Pods/Target Support Files/Pods-Capchit/Pods-Capchit.release.xcconfig"; sourceTree = "<group>"; };
+		B9A3697B90255CD4E9686E2F /* libPods-Capchit.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-Capchit.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,7 +75,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EABFDF7C2406C8AA6E72D581 /* libPods-Red.a in Frameworks */,
+				01C4D0338F653D5DF2367AC4 /* libPods-Capchit.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -96,6 +96,34 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0966DD9B707C9F81F48EED09 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B9A3697B90255CD4E9686E2F /* libPods-Capchit.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		212E3E041BDD5889006E4D1E /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				21D6286A1B4F5EF500E6E4DB /* HomeTableViewController.swift */,
+				21D6286C1B4F5F2C00E6E4DB /* SettingsViewController.swift */,
+				21D6286E1B4F5F9200E6E4DB /* AddViewController.swift */,
+				212DAD901B5A3504007E80F2 /* WordViewController.swift */,
+				211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		212E3E051BDD5891006E4D1E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */,
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
 		21D6282D1B4F5A4A00E6E4DB = {
 			isa = PBXGroup;
 			children = (
@@ -103,8 +131,8 @@
 				21D628501B4F5A4A00E6E4DB /* RedTests */,
 				21D6285B1B4F5A4A00E6E4DB /* RedUITests */,
 				21D628371B4F5A4A00E6E4DB /* Products */,
-				7F6CF1E91A9857F67DED67E4 /* Pods */,
-				66F75883A97A31034EAEB84E /* Frameworks */,
+				D6AA61CF82B181EBD8CA3F67 /* Pods */,
+				0966DD9B707C9F81F48EED09 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -121,6 +149,8 @@
 		21D628381B4F5A4A00E6E4DB /* Red */ = {
 			isa = PBXGroup;
 			children = (
+				212E3E051BDD5891006E4D1E /* Views */,
+				212E3E041BDD5889006E4D1E /* Controllers */,
 				21D628721B4F629A00E6E4DB /* Models */,
 				21D628391B4F5A4A00E6E4DB /* AppDelegate.swift */,
 				21D6283D1B4F5A4A00E6E4DB /* Main.storyboard */,
@@ -128,12 +158,6 @@
 				21D628451B4F5A4A00E6E4DB /* LaunchScreen.storyboard */,
 				21D628481B4F5A4A00E6E4DB /* Info.plist */,
 				21D628401B4F5A4A00E6E4DB /* Red.xcdatamodeld */,
-				21D6286A1B4F5EF500E6E4DB /* HomeTableViewController.swift */,
-				21D6286C1B4F5F2C00E6E4DB /* SettingsViewController.swift */,
-				21D6286E1B4F5F9200E6E4DB /* AddViewController.swift */,
-				212DAD901B5A3504007E80F2 /* WordViewController.swift */,
-				211CD73F1B5D3C4700639689 /* HomeCollectionViewController.swift */,
-				211CD7411B5D44CD00639689 /* WordCollectionViewCell.swift */,
 				212956831B5EDF810089554A /* Red-Bridging-Header.h */,
 				219D09F81BD3B348007CD6CE /* Extensions.swift */,
 			);
@@ -166,19 +190,11 @@
 			name = Models;
 			sourceTree = "<group>";
 		};
-		66F75883A97A31034EAEB84E /* Frameworks */ = {
+		D6AA61CF82B181EBD8CA3F67 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				8E0C5A6F0BBE6F14417BD9FC /* libPods-Red.a */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		7F6CF1E91A9857F67DED67E4 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				2ED4202CDBD896B2892813CC /* Pods-Red.debug.xcconfig */,
-				B626DFA29F3CF2382A565349 /* Pods-Red.release.xcconfig */,
+				00B91DDE5AB91F010F4A73C3 /* Pods-Capchit.debug.xcconfig */,
+				4B10BF4CFC2DF38DF30726EB /* Pods-Capchit.release.xcconfig */,
 			);
 			name = Pods;
 			sourceTree = "<group>";
@@ -190,11 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 21D628611B4F5A4A00E6E4DB /* Build configuration list for PBXNativeTarget "Capchit" */;
 			buildPhases = (
-				B69C3947716789CE821C157B /* Check Pods Manifest.lock */,
+				1CBCCCEA69D5C6032C966936 /* Check Pods Manifest.lock */,
 				21D628321B4F5A4A00E6E4DB /* Sources */,
 				21D628331B4F5A4A00E6E4DB /* Frameworks */,
 				21D628341B4F5A4A00E6E4DB /* Resources */,
-				36F48488375D22BA7AFE9602 /* Copy Pods Resources */,
+				DF6FC972B50CA2157946D86A /* Embed Pods Frameworks */,
+				40ED840F967D6F8D21E50F4A /* Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -313,22 +330,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		36F48488375D22BA7AFE9602 /* Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Red/Pods-Red-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B69C3947716789CE821C157B /* Check Pods Manifest.lock */ = {
+		1CBCCCEA69D5C6032C966936 /* Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -341,6 +343,36 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		40ED840F967D6F8D21E50F4A /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Capchit/Pods-Capchit-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF6FC972B50CA2157946D86A /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Capchit/Pods-Capchit-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -497,7 +529,7 @@
 		};
 		21D628621B4F5A4A00E6E4DB /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 2ED4202CDBD896B2892813CC /* Pods-Red.debug.xcconfig */;
+			baseConfigurationReference = 00B91DDE5AB91F010F4A73C3 /* Pods-Capchit.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -514,7 +546,7 @@
 		};
 		21D628631B4F5A4A00E6E4DB /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B626DFA29F3CF2382A565349 /* Pods-Red.release.xcconfig */;
+			baseConfigurationReference = 4B10BF4CFC2DF38DF30726EB /* Pods-Capchit.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;

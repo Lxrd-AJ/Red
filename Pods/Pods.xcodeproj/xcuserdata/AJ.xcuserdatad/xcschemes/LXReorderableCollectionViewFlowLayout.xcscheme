@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = 'ADBFEA60EE01AD624801F240'
+               BlueprintIdentifier = 'B8F8EC4ED4723C8D718F2D21'
                BlueprintName = 'LXReorderableCollectionViewFlowLayout'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'libLXReorderableCollectionViewFlowLayout.a'>

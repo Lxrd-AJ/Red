@@ -42,16 +42,7 @@ class AddViewController: UITableViewController {
         lastCell.hidden = true
         alert.addAction( cancelAction )
         
-        //Add the animation to the Run loop
-        recordingWave.hidden = true;
-        recordingWave.numberOfWaves = 5;
-        recordingWave.phaseShift = -0.15;
         
-        displayLink = CADisplayLink(target: self, selector: "updateMeters")
-        displayLink.paused = true
-        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
-        
-        recordingWave.updateWithLevel(0.0)
     }
     
     override func viewWillAppear(animated: Bool) {
@@ -88,6 +79,17 @@ class AddViewController: UITableViewController {
             alert.message = "\((error as NSError).localizedDescription)"
             presentViewController(alert, animated: true, completion: nil)
         }
+        
+        //Add the animation to the Run loop
+        recordingWave.hidden = true;
+        recordingWave.numberOfWaves = 5;
+        recordingWave.phaseShift = -0.15;
+        
+        displayLink = CADisplayLink(target: self, selector: "updateMeters")
+        displayLink.paused = true
+        displayLink.addToRunLoop(NSRunLoop.currentRunLoop(), forMode: NSRunLoopCommonModes)
+        
+        recordingWave.updateWithLevel(0.0)
     }
     
     override func didReceiveMemoryWarning() {

@@ -10,4 +10,4 @@ SPEC CHECKSUMS:
   LXReorderableCollectionViewFlowLayout: c89e0f693744c5cb96718822a8455a7de99d90ea
   SCSiriWaveformView: b8b2756af42addcd31900c3945f24edafefb5395
 
-COCOAPODS: 0.39.0.beta.5
+COCOAPODS: 0.39.0

@@ -42,7 +42,8 @@ class HomeCollectionViewController: UICollectionViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        
+        self.words = fetchDataFromDB()!
+        collectionView?.reloadData()
     }
 
     override func didReceiveMemoryWarning() {
@@ -167,7 +168,7 @@ class HomeCollectionViewController: UICollectionViewController {
             cell.imageView.layer.cornerRadius = cell.imageView.frame.width / 2
             cell.imageView.clipsToBounds = true
         }
-        //TODO: Fix Audio bug: audio image noe showing for some cells
+        //TODO: Fix Audio bug: audio image not showing for some cells
         if word.audio == nil { cell.playButton.hidden = true }
         return cell
     }
@@ -191,10 +192,6 @@ class HomeCollectionViewController: UICollectionViewController {
 }
 
 extension HomeCollectionViewController: NSFetchedResultsControllerDelegate {
-//    func controller(controller: NSFetchedResultsController, didChangeObject anObject: NSManagedObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
-//        do{ try managedObjCtx.save() }catch{ print("\(error)") }
-//    }
-    
     func controller(controller: NSFetchedResultsController, didChangeObject anObject: AnyObject, atIndexPath indexPath: NSIndexPath?, forChangeType type: NSFetchedResultsChangeType, newIndexPath: NSIndexPath?) {
         do{ try managedObjCtx.save() }catch{ print("\(error)") }
     }
